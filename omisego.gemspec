@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "omisego/ruby/version"
+require "omisego/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "omisego-ruby"
-  spec.version       = Omisego::Ruby::VERSION
+  spec.name          = "omisego"
+  spec.version       = OmiseGO::VERSION
   spec.authors       = ["Thibault"]
-  spec.email         = ["thibault@omise.co"]
+  spec.email         = ["thibault@omisego.co"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "OmiseGO Ruby SDK."
+  spec.description   = "OmiseGO Ruby SDK."
+  spec.homepage      = "https://omg.omise.co/"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
