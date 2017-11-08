@@ -5,15 +5,17 @@ module OmiseGO
       @config = @client.config
     end
 
-    def call(path:, body:, conn: new_conn)
+    def send(path, body, conn: new_conn)
       response = conn.post do |req|
         req.url path
         req.headers['Authorization'] = authorization
+        req.headers['Accept'] = content_type
         req.headers['Content-Type'] = content_type
         req.body = body.to_json
       end
 
-      Response.new(response.body, @client)
+      json = JSON.parse(response.body)
+      Response.new(json, @client)
     end
 
     private
@@ -23,8 +25,9 @@ module OmiseGO
     end
 
     def authorization
-      keys = Base64.encode64("#{@config.access_key}:#{@config.secret_key}")
-      "#{@config.auth_scheme} #{keys}"
+      keys = "#{@config.access_key}:#{@config.secret_key}"
+      encoded = Base64.encode64(keys).delete("\n")
+      "#{@config.auth_scheme} #{encoded}"
     end
 
     def new_conn

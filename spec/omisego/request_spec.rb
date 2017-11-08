@@ -7,18 +7,18 @@ module OmiseGO
     let(:request) { OmiseGO::Request.new(client) }
     let(:conn) { Faraday.new(url: 'https://example.com') }
 
-    describe '#call' do
+    describe '#send' do
       before do
         expect(conn).to receive(:post)
           .and_return(double(:response, status: 200, body: '{}'))
       end
 
       it 'posts the request' do
-        request.call(path: '/test', body: {}, conn: conn)
+        request.send('/test', {}, conn: conn)
       end
 
       it 'returns a Response object' do
-        response = request.call(path: '/test', body: {}, conn: conn)
+        response = request.send('/test', {}, conn: conn)
         expect(response).to be_kind_of OmiseGO::Response
       end
     end

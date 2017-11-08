@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.get
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Wed, 08 Nov 2017 04:47:47 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '287'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3gnuae79gv1s89u84bhtjvd7qgue7qae
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"nil
+        given for :provider_user_id. Comparison with nil is forbidden as it is unsafe.
+        Instead write a query with is_nil/1, for example: is_nil(s.provider_user_id)","code":"server:internal_server_error"}}'
+    http_version: 
+  recorded_at: Wed, 08 Nov 2017 04:47:36 GMT
+recorded_with: VCR 3.0.3

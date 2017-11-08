@@ -3,14 +3,16 @@ module OmiseGO
     OPTIONS = {
       access_key: -> { ENV['OMISEGO_ACCESS_KEY'] },
       secret_key: -> { ENV['OMISEGO_SECRET_KEY'] },
-      base_url: 'https://example.com'
+      base_url: -> { ENV['OMISEGO_BASE_URL'] }
     }.freeze
 
     OMISEGO_OPTIONS = {
       api_version: '1',
       auth_scheme: 'OMGServer',
       models: {
-        user: OmiseGO::User
+        user: OmiseGO::User,
+        error: OmiseGO::Error,
+        authentication_token: OmiseGO::AuthenticationToken
       }
     }.freeze
 

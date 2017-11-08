@@ -7,6 +7,10 @@ module OmiseGO
         attr_accessor(*attrs)
         @attributes_list = attrs.map(&:to_sym)
       end
+
+      def global_client
+        Client.new
+      end
     end
 
     attr_accessor :client, :original_payload
@@ -20,7 +24,15 @@ module OmiseGO
       end
 
       self.original_payload = attributes
-      @client = client || Client.new
+      @client = client || self.class.global_client
+    end
+
+    def inspect
+      string = "#<#{self.class.name}:#{object_id} "
+      fields = self.class.attributes_list.map do |field|
+        "#{field}: #{send(field)}"
+      end
+      string << fields.join(', ') << '>'
     end
   end
 end

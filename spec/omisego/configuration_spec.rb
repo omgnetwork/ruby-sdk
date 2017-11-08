@@ -6,13 +6,16 @@ RSpec.describe OmiseGO::Configuration do
       it 'uses the defined ENV variables' do
         ENV['OMISEGO_ACCESS_KEY'] = 'access'
         ENV['OMISEGO_SECRET_KEY'] = 'secret'
+        ENV['OMISEGO_BASE_URL'] = 'https://example.com'
 
         config = OmiseGO::Configuration.new
         expect(config.access_key).to eq('access')
         expect(config.secret_key).to eq('secret')
+        expect(config.base_url).to eq('https://example.com')
 
         ENV.delete('OMISEGO_ACCESS_KEY')
         ENV.delete('OMISEGO_SECRET_KEY')
+        ENV.delete('OMISEGO_BASE_URL')
       end
     end
 
@@ -29,7 +32,7 @@ RSpec.describe OmiseGO::Configuration do
       expect(config.access_key).to eq(nil)
       expect(config.secret_key).to eq(nil)
       expect(config.api_version).to eq('1')
-      expect(config.base_url).to eq('https://example.com')
+      expect(config.base_url).to eq(nil)
     end
 
     context 'with overriding options' do
@@ -38,14 +41,14 @@ RSpec.describe OmiseGO::Configuration do
         expect(config.access_key).to eq('123')
         expect(config.secret_key).to eq(nil)
         expect(config.api_version).to eq('1')
-        expect(config.base_url).to eq('https://example.com')
+        expect(config.base_url).to eq(nil)
       end
     end
   end
 
   describe '#[]' do
     it 'returns the request value' do
-      expect(OmiseGO::Configuration.new[:base_url]).to eq('https://example.com')
+      expect(OmiseGO::Configuration.new[:base_url]).to eq(nil)
     end
   end
 
@@ -54,7 +57,7 @@ RSpec.describe OmiseGO::Configuration do
       expect(OmiseGO::Configuration.new.to_hash).to eq(
         access_key: nil,
         secret_key: nil,
-        base_url: 'https://example.com'
+        base_url: nil
       )
     end
   end

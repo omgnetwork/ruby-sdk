@@ -1,4 +1,9 @@
+require_relative './env.rb'
+
 require 'bundler/setup'
+require 'pry-byebug'
+require 'webmock/rspec'
+require 'vcr'
 require 'omisego'
 
 RSpec.configure do |config|
@@ -11,4 +16,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.hook_into :webmock
 end

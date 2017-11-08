@@ -1,14 +1,17 @@
 require 'faraday'
 require 'json'
 
+require 'omisego/error_handler'
+
 require 'omisego/response'
 require 'omisego/request'
 require 'omisego/client'
 
 require 'omisego/base'
+require 'omisego/error'
 require 'omisego/user'
+require 'omisego/authentication_token'
 
-require 'omisego/configuration'
 require 'omisego/version'
 require 'omisego/configuration'
 

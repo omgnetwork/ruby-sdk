@@ -10,11 +10,11 @@ module OmiseGO
       request.call(path: path, body: params)
     end
 
-    private
-
     def request
-      @request ||= Request.new(@config, self)
+      @request ||= Request.new(self)
     end
+
+    private
 
     def load_config(options)
       return OmiseGO.configuration unless options
