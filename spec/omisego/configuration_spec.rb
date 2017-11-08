@@ -28,8 +28,18 @@ RSpec.describe OmiseGO::Configuration do
       config = OmiseGO::Configuration.new
       expect(config.access_key).to eq(nil)
       expect(config.secret_key).to eq(nil)
-      expect(config.version).to eq('1.0.0')
+      expect(config.api_version).to eq('1')
       expect(config.base_url).to eq('https://example.com')
+    end
+
+    context 'with overriding options' do
+      it 'uses the values passed as options' do
+        config = OmiseGO::Configuration.new(access_key: '123')
+        expect(config.access_key).to eq('123')
+        expect(config.secret_key).to eq(nil)
+        expect(config.api_version).to eq('1')
+        expect(config.base_url).to eq('https://example.com')
+      end
     end
   end
 

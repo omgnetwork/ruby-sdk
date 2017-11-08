@@ -1,5 +1,4 @@
 module OmiseGO
-  # :nodoc:
   class Configuration
     OPTIONS = {
       access_key: -> { ENV['OMISEGO_ACCESS_KEY'] },
@@ -8,15 +7,20 @@ module OmiseGO
     }.freeze
 
     OMISEGO_OPTIONS = {
-      version: '1.0.0'
+      api_version: '1',
+      auth_scheme: 'OMGServer',
+      models: {
+        user: OmiseGO::User
+      }
     }.freeze
 
     attr_accessor(*OPTIONS.keys)
     attr_reader(*OMISEGO_OPTIONS.keys)
 
-    def initialize
+    def initialize(options = {})
       OPTIONS.merge(OMISEGO_OPTIONS).each do |name, val|
-        value = val.respond_to?(:lambda?) && val.lambda? ? val.call : val
+        value = options ? options[name] || options[name.to_sym] : nil
+        value ||= val.respond_to?(:call) ? val.call : val
         instance_variable_set("@#{name}", value)
       end
     end
@@ -27,12 +31,12 @@ module OmiseGO
 
     def to_hash
       OPTIONS.keys.each_with_object({}) do |option, hash|
-        hash[option.to_sym] = send(option)
+        hash[option.to_sym] = self[option]
       end
     end
 
     def merge(options)
-      OPTIONS.each_keys do |name|
+      OPTIONS.each_key do |name|
         instance_variable_set("@#{name}", options[name]) if options[name]
       end
     end
