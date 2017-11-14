@@ -11,6 +11,10 @@ module OmiseGO
       def global_client
         Client.new
       end
+
+      def request(client)
+        (client || global_client).request
+      end
     end
 
     attr_accessor :client, :original_payload
@@ -33,6 +37,10 @@ module OmiseGO
         "#{field}: #{send(field)}"
       end
       string << fields.join(', ') << '>'
+    end
+
+    def error?
+      false
     end
   end
 end

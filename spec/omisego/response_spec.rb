@@ -38,7 +38,7 @@ module OmiseGO
                                            },
                                            client)
 
-          expect { response.data }.to raise_error('Unknown Object')
+          expect { response.data }.to raise_error("Unknown Object 'foo'")
         end
       end
 

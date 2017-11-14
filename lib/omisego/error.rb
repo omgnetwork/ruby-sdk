@@ -5,5 +5,9 @@ module OmiseGO
     def to_s
       "#{code} - #{description}"
     end
+
+    def error?
+      true
+    end
   end
 end

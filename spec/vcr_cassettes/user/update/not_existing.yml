@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.update
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"fake","username":"jane@doe.com","metadata":{"first_name":"Jane","last_name":"Doe"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Fri, 10 Nov 2017 09:18:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '194'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - iks96ima9l91ma1kjr2nb11g6uctfiu1
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
+        is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
+    http_version: 
+  recorded_at: Fri, 10 Nov 2017 09:18:01 GMT
+recorded_with: VCR 3.0.3

@@ -1,6 +1,7 @@
 require 'faraday'
 require 'json'
 
+require 'omisego/invalid_configuration'
 require 'omisego/error_handler'
 
 require 'omisego/response'
@@ -9,6 +10,10 @@ require 'omisego/client'
 
 require 'omisego/base'
 require 'omisego/error'
+require 'omisego/list'
+require 'omisego/minted_token'
+require 'omisego/balance'
+require 'omisego/address'
 require 'omisego/user'
 require 'omisego/authentication_token'
 

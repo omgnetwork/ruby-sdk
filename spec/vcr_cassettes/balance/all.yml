@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.list_balances
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"user12345678"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Fri, 10 Nov 2017 09:46:20 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '148'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - v8hb401dp0ba5ggf48hlevv10ubel4em
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
+    http_version: 
+  recorded_at: Fri, 10 Nov 2017 09:46:21 GMT
+recorded_with: VCR 3.0.3

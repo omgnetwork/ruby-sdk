@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.credit_balance
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"user12345678","symbol":"OMG","amount":10000,"metadata":{}}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Tue, 14 Nov 2017 04:51:08 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '278'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - gqkh8itkp84d8oav3rh8eskjhtqddvdt
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":100,"object":"minted_token","name":"OmiseGO"},"amount":10000}],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
+    http_version: 
+  recorded_at: Tue, 14 Nov 2017 04:51:06 GMT
+recorded_with: VCR 3.0.3

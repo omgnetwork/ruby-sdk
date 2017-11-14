@@ -18,10 +18,7 @@ module OmiseGO
 
     def load_config(options)
       return OmiseGO.configuration unless options
-
-      config = Configuration.new
-      config.merge(OmiseGO.configuration.to_hash.merge(options))
-      config
+      Configuration.new(options.to_hash)
     end
   end
 end

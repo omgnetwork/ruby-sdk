@@ -12,7 +12,9 @@ module OmiseGO
       models: {
         user: OmiseGO::User,
         error: OmiseGO::Error,
-        authentication_token: OmiseGO::AuthenticationToken
+        authentication_token: OmiseGO::AuthenticationToken,
+        address: OmiseGO::Balance,
+        list: OmiseGO::List
       }
     }.freeze
 
@@ -20,15 +22,19 @@ module OmiseGO
     attr_reader(*OMISEGO_OPTIONS.keys)
 
     def initialize(options = {})
-      OPTIONS.merge(OMISEGO_OPTIONS).each do |name, val|
+      OPTIONS.each do |name, val|
         value = options ? options[name] || options[name.to_sym] : nil
-        value ||= val.respond_to?(:call) ? val.call : val
+        value ||= val.call if val.respond_to?(:call)
+        instance_variable_set("@#{name}", value)
+      end
+
+      OMISEGO_OPTIONS.each do |name, value|
         instance_variable_set("@#{name}", value)
       end
     end
 
     def [](option)
-      send(option)
+      instance_variable_get("@#{option}")
     end
 
     def to_hash

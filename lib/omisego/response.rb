@@ -16,7 +16,9 @@ module OmiseGO
 
     def data
       type = @body['data']['object'].to_sym
-      raise 'Unknown Object' unless @config[:models].keys.include?(type)
+      unless @config[:models] && @config[:models].keys.include?(type)
+        raise "Unknown Object '#{@body['data']['object']}'"
+      end
 
       klass = @config[:models][type]
       klass.new(@body['data'], client: @client)
