@@ -42,5 +42,23 @@ module OmiseGO
         end
       end
     end
+
+    describe '.debit' do
+      context 'with valid params' do
+        it 'retrieves the list of balances' do
+          VCR.use_cassette('balance/debit/valid') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+            balances = OmiseGO::Balance.debit(
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              symbol: 'OMG',
+              amount: 1000,
+              client: client
+            )
+
+            expect(balances).to be_kind_of OmiseGO::List
+          end
+        end
+      end
+    end
   end
 end
