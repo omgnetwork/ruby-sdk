@@ -32,7 +32,7 @@ module OmiseGO
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             balances = OmiseGO::Balance.credit(
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              symbol: 'OMG',
+              token_id: 'OMG:123',
               amount: 10_000,
               client: client
             )
@@ -50,7 +50,7 @@ module OmiseGO
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             balances = OmiseGO::Balance.debit(
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              symbol: 'OMG',
+              token_id: 'OMG:123',
               amount: 1000,
               client: client
             )

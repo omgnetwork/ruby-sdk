@@ -12,13 +12,13 @@ module OmiseGO
         request(client).send('/user.get', provider_user_id: provider_user_id).data
       end
 
-      def create(provider_user_id:, username:, metadata:, client: nil)
+      def create(provider_user_id:, username:, metadata: {}, client: nil)
         request(client).send('/user.create', provider_user_id: provider_user_id,
                                              username: username,
                                              metadata: metadata).data
       end
 
-      def update(provider_user_id:, username:, metadata:, client: nil)
+      def update(provider_user_id:, username:, metadata: {}, client: nil)
         request(client).send('/user.update', provider_user_id: provider_user_id,
                                              username: username,
                                              metadata: metadata).data
@@ -29,7 +29,7 @@ module OmiseGO
       login(provider_user_id)
     end
 
-    def update(username:, metadata:, client: nil)
+    def update(username:, metadata: {}, client: nil)
       update({
                provider_user_id: provider_user_id,
                username: username,

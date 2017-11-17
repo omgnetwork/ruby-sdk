@@ -158,8 +158,9 @@ Transfer the specified amount (as an integer, down to the `subunit_to_unit`) fro
 ```
 address = OmiseGO::Balance.credit(
   provider_user_id: 'some_uuid',
-  symbol: 'OMG',
-  amount: 10_000
+  token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
+  amount: 10_000,
+  metadata: {}
 )
 ```
 
@@ -170,8 +171,9 @@ Transfer the specified amount (as an integer, down to the `subunit_to_unit`) fro
 ```
 address = OmiseGO::Balance.debit(
   provider_user_id: 'some_uuid',
-  symbol: 'OMG',
-  amount: 10_000
+  token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
+  amount: 10_000,
+  metadata: {}
 )
 ```
 

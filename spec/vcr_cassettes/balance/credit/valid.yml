@@ -5,7 +5,7 @@ http_interactions:
     uri: https://example.com/user.credit_balance
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"user12345678","symbol":"OMG","amount":10000,"metadata":{}}'
+      string: '{"provider_user_id":"user12345678","token_id":"OMG:123","amount":10000,"metadata":{}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
@@ -40,7 +40,7 @@ http_interactions:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":100,"object":"minted_token","name":"OmiseGO"},"amount":10000}],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
-    http_version: 
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"id":"OMG:123","symbol":"OMG","subunit_to_unit":100,"object":"minted_token","name":"OmiseGO"},"amount":10000}],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
+    http_version:
   recorded_at: Tue, 14 Nov 2017 04:51:06 GMT
 recorded_with: VCR 3.0.3
