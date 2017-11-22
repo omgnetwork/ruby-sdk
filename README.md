@@ -137,7 +137,7 @@ Returns either:
 - [Credit](#Credit)
 - [Debit](#Debit)
 
-### All
+#### All
 
 Retrieve a list of addresses (with only one address for now) containing a list of balances.
 
@@ -151,7 +151,7 @@ Returns either:
 - An `OmiseGO::Address` instance
 - An `OmiseGO::Error` instance
 
-### Credit
+#### Credit
 
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the master wallet to the specified user's wallet.
 
@@ -164,7 +164,7 @@ address = OmiseGO::Balance.credit(
 )
 ```
 
-### Debit
+#### Debit
 
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the specified user's wallet back to the master wallet.
 
@@ -176,6 +176,20 @@ address = OmiseGO::Balance.debit(
   metadata: {}
 )
 ```
+
+### Getting settings
+
+#### All
+
+Retrieve the settings from the Wallet API.
+
+```
+settings = OmiseGO::Setting.all
+```
+
+Returns either:
+- An `OmiseGO::Setting` instance
+- An `OmiseGO::Error` instance
 
 ## Models
 

@@ -14,7 +14,7 @@ module OmiseGO
         req.headers['Accept'] = content_type
         req.headers['Content-Type'] = content_type
         req.headers['Idempotency-Token'] = idempotency_token if idempotency_token
-        req.body = body.to_json
+        req.body = body.to_json if body
       end
 
       json = JSON.parse(response.body)

@@ -13,8 +13,11 @@ module OmiseGO
         user: OmiseGO::User,
         error: OmiseGO::Error,
         authentication_token: OmiseGO::AuthenticationToken,
-        address: OmiseGO::Balance,
-        list: OmiseGO::List
+        address: OmiseGO::Address,
+        balance: OmiseGO::Balance,
+        minted_token: OmiseGO::MintedToken,
+        list: OmiseGO::List,
+        setting: OmiseGO::Setting
       }
     }.freeze
 

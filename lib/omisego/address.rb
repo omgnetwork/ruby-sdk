@@ -1,6 +1,6 @@
 module OmiseGO
   class Address < Base
-    attributes :address
+    attributes :address, :balances
 
     def balances
       @_balances ||= @balances.map do |balance|

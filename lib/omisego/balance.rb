@@ -1,6 +1,6 @@
 module OmiseGO
   class Balance < Base
-    attributes :amount
+    attributes :amount, :minted_token
 
     class << self
       def all(provider_user_id:, client: nil)

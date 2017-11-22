@@ -40,7 +40,7 @@ http_interactions:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
-    http_version: 
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"minted_token","name":"Ether","id":"ETH:115db088-d7f7-4d2d-898d-64a42ce633bb"},"amount":3800}],"address":"97c56816-d5a6-4680-a159-249eb95ea07f"}]}}'
+    http_version:
   recorded_at: Fri, 10 Nov 2017 09:46:21 GMT
 recorded_with: VCR 3.0.3
