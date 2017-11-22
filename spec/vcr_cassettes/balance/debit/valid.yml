@@ -17,6 +17,8 @@ http_interactions:
       - application/vnd.omisego.v1+json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Idempotency-Token:
+      - 41eb9325-2612-406f-a325-fb67c3c9d8f2
   response:
     status:
       code: 200

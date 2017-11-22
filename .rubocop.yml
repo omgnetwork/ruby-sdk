@@ -6,3 +6,9 @@ Metrics/ModuleLength:
   Enabled: false
 Documentation:
   Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 22

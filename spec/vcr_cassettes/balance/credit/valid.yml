@@ -15,6 +15,8 @@ http_interactions:
       - application/vnd.omisego.v1+json
       Content-Type:
       - application/vnd.omisego.v1+json
+      Idempotency-Token:
+      - 41eb9325-2612-406f-a325-fb67c3c9d8f1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:

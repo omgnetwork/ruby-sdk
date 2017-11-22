@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'securerandom'
 
 module OmiseGO
   RSpec.describe Balance do
@@ -34,7 +35,8 @@ module OmiseGO
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: 'OMG:123',
               amount: 10_000,
-              client: client
+              client: client,
+              idempotency_token: SecureRandom.uuid
             )
 
             expect(balances).to be_kind_of OmiseGO::List
@@ -52,7 +54,8 @@ module OmiseGO
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: 'OMG:123',
               amount: 1000,
-              client: client
+              client: client,
+              idempotency_token: SecureRandom.uuid
             )
 
             expect(balances).to be_kind_of OmiseGO::List
