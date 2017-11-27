@@ -8,18 +8,61 @@ module OmiseGO
     let(:conn) { Faraday.new(url: 'https://example.com') }
 
     describe '#send' do
-      before do
-        expect(conn).to receive(:post)
-          .and_return(double(:response, status: 200, headers: {}, body: '{}'))
+      context 'valid json response' do
+        before do
+          expect(conn).to receive(:post)
+            .and_return(double(:response, status: 200, headers: {}, body: '{}'))
+        end
+
+        it 'posts the request' do
+          request.send('/test', {}, conn: conn)
+        end
+
+        it 'returns a Response object' do
+          response = request.send('/test', {}, conn: conn)
+          expect(response).to be_kind_of OmiseGO::Response
+        end
       end
 
-      it 'posts the request' do
-        request.send('/test', {}, conn: conn)
+      context 'invalid json response' do
+        before do
+          expect(conn).to receive(:post).and_raise(JSON::ParserError, 'Error')
+        end
+
+        it 'returns an error' do
+          error = request.send('/test', {}, conn: conn).data
+          expect(error).to be_kind_of OmiseGO::Error
+          expect(error.code).to eq 'json_parsing_error'
+          expect(error.description).to eq 'The JSON received from the server ' \
+                                          'could not be parsed: Error'
+        end
       end
 
-      it 'returns a Response object' do
-        response = request.send('/test', {}, conn: conn)
-        expect(response).to be_kind_of OmiseGO::Response
+      context 'invalid status code' do
+        before do
+          expect(conn).to receive(:post)
+            .and_return(double(:response, status: 400, headers: {}, body: '{}'))
+        end
+
+        it 'returns a Response object' do
+          error = request.send('/test', {}, conn: conn).data
+          expect(error).to be_kind_of OmiseGO::Error
+          expect(error.code).to eq 'invalid_status_code'
+          expect(error.description).to eq 'The server returned an invalid status code: 400'
+        end
+      end
+
+      context 'failed connection' do
+        before do
+          expect(conn).to receive(:post).and_raise(Faraday::Error::ConnectionFailed, 'Test')
+        end
+
+        it 'returns an error' do
+          error = request.send('/test', {}, conn: conn).data
+          expect(error).to be_kind_of OmiseGO::Error
+          expect(error.code).to eq 'connection_failed'
+          expect(error.description).to eq 'Test'
+        end
       end
     end
   end

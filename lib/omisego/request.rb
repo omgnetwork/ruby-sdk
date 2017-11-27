@@ -19,11 +19,35 @@ module OmiseGO
       end
 
       logger.log_response(response)
+
+      unless [200, 500].include?(response.status)
+        return error('invalid_status_code',
+                     "The server returned an invalid status code: #{response.status}")
+      end
+
       json = JSON.parse(response.body)
       Response.new(json, @client)
+    rescue JSON::ParserError => e
+      error('json_parsing_error',
+            "The JSON received from the server could not be parsed: #{e.message}")
+    rescue Faraday::Error::ConnectionFailed => e
+      error('connection_failed', e.message)
     end
 
     private
+
+    def error(code, description)
+      Response.new({
+                     'success' => false,
+                     'version' => @config.api_version,
+                     'data' => {
+                       'object' => 'error',
+                       'code' => code,
+                       'description' => description,
+                       'messages' => []
+                     }
+                   }, @client)
+    end
 
     def logger
       @logger ||= HTTPLogger.new(@config.logger)
