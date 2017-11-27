@@ -39,6 +39,10 @@ module OmiseGO
       string << fields.join(', ') << '>'
     end
 
+    def success?
+      true
+    end
+
     def error?
       false
     end

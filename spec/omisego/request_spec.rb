@@ -10,7 +10,7 @@ module OmiseGO
     describe '#send' do
       before do
         expect(conn).to receive(:post)
-          .and_return(double(:response, status: 200, body: '{}'))
+          .and_return(double(:response, status: 200, headers: {}, body: '{}'))
       end
 
       it 'posts the request' do

@@ -6,6 +6,10 @@ module OmiseGO
       "#{code} - #{description}"
     end
 
+    def success?
+      false
+    end
+
     def error?
       true
     end

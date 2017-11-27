@@ -15,13 +15,19 @@ module OmiseGO
         req.headers['Content-Type'] = content_type
         req.headers['Idempotency-Token'] = idempotency_token if idempotency_token
         req.body = body.to_json if body
+        logger.log_request(req)
       end
 
+      logger.log_response(response)
       json = JSON.parse(response.body)
       Response.new(json, @client)
     end
 
     private
+
+    def logger
+      @logger ||= HTTPLogger.new(@config.logger)
+    end
 
     def content_type
       "application/vnd.omisego.v#{@config.api_version}+json"

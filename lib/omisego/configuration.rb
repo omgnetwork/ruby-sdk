@@ -3,7 +3,8 @@ module OmiseGO
     OPTIONS = {
       access_key: -> { ENV['OMISEGO_ACCESS_KEY'] },
       secret_key: -> { ENV['OMISEGO_SECRET_KEY'] },
-      base_url: -> { ENV['OMISEGO_BASE_URL'] }
+      base_url: -> { ENV['OMISEGO_BASE_URL'] },
+      logger: nil
     }.freeze
 
     OMISEGO_OPTIONS = {

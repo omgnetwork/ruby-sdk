@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'logger'
 
 module OmiseGO
   RSpec.describe User do
@@ -23,6 +24,33 @@ module OmiseGO
             )
             expect(auth_token).to be_kind_of OmiseGO::AuthenticationToken
             expect(auth_token.authentication_token).not_to eq nil
+          end
+        end
+
+        context 'with logging' do
+          let(:logger) { Logger.new(STDOUT) }
+          let(:config) do
+            OmiseGO::Configuration.new(
+              access_key: ENV['ACCESS_KEY'],
+              secret_key: ENV['SECRET_KEY'],
+              base_url: ENV['KUBERA_URL'],
+              logger: logger
+            )
+          end
+
+          it 'logs the request' do
+            VCR.use_cassette('user/login/existing') do
+              expect(logger).to receive(:info) do |log_line|
+                expect(log_line).to include("[OmiseGO] Request: POST /login\n")
+              end
+              expect(logger).to receive(:info) do |log_line|
+                expect(log_line).to include("[OmiseGO] Response: HTTP/200\n")
+              end
+              OmiseGO::User.login(
+                provider_user_id: ENV['PROVIDER_USER_ID'],
+                client: client
+              )
+            end
           end
         end
       end

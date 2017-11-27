@@ -4,6 +4,7 @@ require 'json'
 require 'omisego/invalid_configuration'
 require 'omisego/error_handler'
 
+require 'omisego/http_logger'
 require 'omisego/response'
 require 'omisego/request'
 require 'omisego/client'

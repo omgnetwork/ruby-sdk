@@ -57,7 +57,8 @@ RSpec.describe OmiseGO::Configuration do
       expect(OmiseGO::Configuration.new.to_hash).to eq(
         access_key: nil,
         secret_key: nil,
-        base_url: nil
+        base_url: nil,
+        logger: nil
       )
     end
   end
