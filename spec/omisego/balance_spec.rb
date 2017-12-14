@@ -43,6 +43,27 @@ module OmiseGO
             )
 
             expect(balances).to be_kind_of OmiseGO::List
+            address = balances.first
+            expect(address).to be_kind_of OmiseGO::Address
+          end
+        end
+      end
+
+      context 'with optional params account_id and burn_balance_identifier' do
+        it "credits the user's balance" do
+          VCR.use_cassette('balance/credit/valid_optional') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+            balances = OmiseGO::Balance.credit(
+              account_id: ENV['ACCOUNT_ID'],
+              burn_balance_identifier: 'burn',
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              token_id: 'OMG:d19926d5-3f02-42fe-a643-e53806e644d6',
+              amount: 10_000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(balances).to be_kind_of OmiseGO::List
           end
         end
       end
@@ -57,6 +78,25 @@ module OmiseGO
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: 'OMG:123',
               amount: 1000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(balances).to be_kind_of OmiseGO::List
+          end
+        end
+      end
+
+      context 'with optional params account_id and burn_balance_identifier' do
+        it "debit/s the user's balance" do
+          VCR.use_cassette('balance/debit/valid_optional') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+            balances = OmiseGO::Balance.debit(
+              account_id: ENV['ACCOUNT_ID'],
+              burn_balance_identifier: 'burn',
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              token_id: 'OMG:d19926d5-3f02-42fe-a643-e53806e644d6',
+              amount: 10_000,
               client: client,
               idempotency_token: SecureRandom.uuid
             )

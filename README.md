@@ -164,12 +164,49 @@ address = OmiseGO::Balance.credit(
 )
 ```
 
+To use the primary balance of a specific account instead of the master account's as the sending balance, specify an `account_id`:
+
+```
+address = OmiseGO::Balance.credit(
+  account_id: 'account_uuid',
+  provider_user_id: 'some_uuid',
+  token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
+  amount: 10_000,
+  metadata: {}
+)
+```
+
 #### Debit
 
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the specified user's wallet back to the master wallet.
 
 ```
 address = OmiseGO::Balance.debit(
+  provider_user_id: 'some_uuid',
+  token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
+  amount: 10_000,
+  metadata: {}
+)
+```
+
+To use the primary balance of a specific account instead of the master account as the receiving balance, specify an `account_id`:
+
+```
+address = OmiseGO::Balance.debit(
+  account_id: 'account_uuid',
+  provider_user_id: 'some_uuid',
+  token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
+  amount: 10_000,
+  metadata: {}
+)
+```
+
+By default, points won't be burned and will be returned to the account's primary balance (either the master's balance or the account's specified with `account_id`). If you wish to burn points, send them to a burn address. By default, a burn address identified by `'burn'` is created for each account which can be set in the `burn_balance_identifier` field:
+
+```
+address = OmiseGO::Balance.debit(
+  account_id: 'account_uuid',
+  burn_balance_identifier: 'burn',
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
