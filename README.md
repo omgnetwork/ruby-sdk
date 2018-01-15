@@ -7,7 +7,7 @@ OmiseGO is a Ruby SDK meant to communicate with an OmiseGO Wallet setup.
 Until the `omisego` gem is released, this SDK should be used by pulling the source code directly:
 
 ```
-gem 'omisego', '0.9.0', git: 'ssh://git@phabricator.omisego.io/source/sdk-ruby.git', tag: 'v0.9.0'
+gem 'omisego', '0.9.0', git: 'ssh://git@github.com/omisego/ruby-sdk.git', tag: 'v0.9.0'
 ```
 
 ## Installation
