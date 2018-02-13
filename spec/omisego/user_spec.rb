@@ -7,7 +7,7 @@ module OmiseGO
       OmiseGO::Configuration.new(
         access_key: ENV['ACCESS_KEY'],
         secret_key: ENV['SECRET_KEY'],
-        base_url: ENV['KUBERA_URL']
+        base_url:   ENV['EWALLET_URL']
       )
     end
     let(:client) { OmiseGO::Client.new(config) }
@@ -33,7 +33,7 @@ module OmiseGO
             OmiseGO::Configuration.new(
               access_key: ENV['ACCESS_KEY'],
               secret_key: ENV['SECRET_KEY'],
-              base_url: ENV['KUBERA_URL'],
+              base_url: ENV['EWALLET_URL'],
               logger: logger
             )
           end
@@ -41,7 +41,7 @@ module OmiseGO
           it 'logs the request' do
             VCR.use_cassette('user/login/existing') do
               expect(logger).to receive(:info) do |log_line|
-                expect(log_line).to include("[OmiseGO] Request: POST /login\n")
+                expect(log_line).to include("[OmiseGO] Request: POST login\n")
               end
               expect(logger).to receive(:info) do |log_line|
                 expect(log_line).to include("[OmiseGO] Response: HTTP/200\n")
@@ -82,7 +82,7 @@ module OmiseGO
               client: client
             )
             expect(user).to be_kind_of OmiseGO::User
-            expect(user.username).to eq 'exampleuser'
+            expect(user.provider_user_id).to eq ENV['PROVIDER_USER_ID']
           end
         end
       end
@@ -123,7 +123,7 @@ module OmiseGO
         it 'creates and retrieves the user' do
           VCR.use_cassette('user/create/valid') do
             user = OmiseGO::User.create(
-              provider_user_id: 'userOMGShopAPITest',
+              provider_user_id: 'userOMGShopAPITest01',
               username: 'john@doe.com',
               metadata: {
                 first_name: 'John',
@@ -141,8 +141,8 @@ module OmiseGO
         it 'gets an invalid parameter error' do
           VCR.use_cassette('user/create/invalid') do
             error = OmiseGO::User.create(
-              provider_user_id: nil,
-              username: 'john@doe.com',
+              provider_user_id: 'userOMGShopAPITest02',
+              username: 'user01',
               metadata: {
                 first_name: 'John',
                 last_name: 'Denizet'
@@ -151,13 +151,6 @@ module OmiseGO
             )
             expect(error).to be_kind_of OmiseGO::Error
             expect(error.code).to eq 'client:invalid_parameter'
-            expect(error.description).to eq(
-              'Invalid parameter provided. `username` has already been taken. ' \
-              "`provider_user_id` can't be blank."
-            )
-            expect(error.messages).to eq(
-              'username' => ['already_taken'], 'provider_user_id' => ['required']
-            )
           end
         end
       end

@@ -6,12 +6,12 @@ RSpec.describe OmiseGO::Configuration do
       it 'uses the defined ENV variables' do
         ENV['OMISEGO_ACCESS_KEY'] = 'access'
         ENV['OMISEGO_SECRET_KEY'] = 'secret'
-        ENV['OMISEGO_BASE_URL'] = 'https://example.com'
+        ENV['OMISEGO_BASE_URL'] = ENV['EWALLET_URL']
 
         config = OmiseGO::Configuration.new
         expect(config.access_key).to eq('access')
         expect(config.secret_key).to eq('secret')
-        expect(config.base_url).to eq('https://example.com')
+        expect(config.base_url).to eq(ENV['EWALLET_URL'])
 
         ENV.delete('OMISEGO_ACCESS_KEY')
         ENV.delete('OMISEGO_SECRET_KEY')

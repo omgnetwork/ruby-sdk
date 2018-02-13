@@ -7,7 +7,7 @@ module OmiseGO
       OmiseGO::Configuration.new(
         access_key: ENV['ACCESS_KEY'],
         secret_key: ENV['SECRET_KEY'],
-        base_url: ENV['KUBERA_URL']
+        base_url: ENV['EWALLET_URL']
       )
     end
     let(:client) { OmiseGO::Client.new(config) }
@@ -36,7 +36,7 @@ module OmiseGO
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             balances = OmiseGO::Balance.credit(
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              token_id: 'OMG:123',
+              token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
               idempotency_token: SecureRandom.uuid
@@ -57,7 +57,7 @@ module OmiseGO
               account_id: ENV['ACCOUNT_ID'],
               burn_balance_identifier: 'burn',
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              token_id: 'OMG:d19926d5-3f02-42fe-a643-e53806e644d6',
+              token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
               idempotency_token: SecureRandom.uuid
@@ -76,7 +76,7 @@ module OmiseGO
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             balances = OmiseGO::Balance.debit(
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              token_id: 'OMG:123',
+              token_id: ENV['TOKEN_ID'],
               amount: 1000,
               client: client,
               idempotency_token: SecureRandom.uuid
@@ -95,7 +95,7 @@ module OmiseGO
               account_id: ENV['ACCOUNT_ID'],
               burn_balance_identifier: 'burn',
               provider_user_id: ENV['PROVIDER_USER_ID'],
-              token_id: 'OMG:d19926d5-3f02-42fe-a643-e53806e644d6',
+              token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
               idempotency_token: SecureRandom.uuid

@@ -6,7 +6,7 @@ module OmiseGO
       OmiseGO::Configuration.new(
         access_key: ENV['ACCESS_KEY'],
         secret_key: ENV['SECRET_KEY'],
-        base_url: ENV['KUBERA_URL']
+        base_url: ENV['EWALLET_URL']
       )
     end
     let(:client) { OmiseGO::Client.new(config) }

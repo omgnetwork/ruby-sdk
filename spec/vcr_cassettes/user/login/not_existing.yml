@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 08 Nov 2017 07:14:16 GMT
+      - Tue, 13 Feb 2018 08:38:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -35,7 +35,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - j4vjp572m3gk2e13ndfna1bq5ev2n01c
+      - rv5lh6cu9nllom9qabjgv3smavot27ag
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
@@ -43,5 +43,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Wed, 08 Nov 2017 07:14:05 GMT
+  recorded_at: Tue, 13 Feb 2018 08:38:21 GMT
 recorded_with: VCR 3.0.3

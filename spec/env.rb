@@ -1,9 +1,10 @@
-ENV['ACCESS_KEY'] = 'replace_with_access_key'
-ENV['SECRET_KEY'] = 'replace_with_secret_key'
-ENV['KUBERA_URL'] = 'https://example.com'
+ENV['ACCESS_KEY'] = 'ACCESS_KEY'
+ENV['SECRET_KEY'] = 'SECRET_KEY'
+ENV['EWALLET_URL'] = 'https://example.com'
 
-ENV['PROVIDER_USER_ID'] = 'user01'
-ENV['ACCOUNT_ID'] = 'ad9454e1-2d07-4356-bb7a-d635b69b8c69'
+ENV['PROVIDER_USER_ID'] = 'provider_user_id01'
+ENV['ACCOUNT_ID'] = 'edbb9557-c37f-4511-b3ff-794fc553b8cf'
+ENV['TOKEN_ID'] = 'OMG:e44b1882-87d4-4498-91d2-a5762593a194'
 
 # Base64 Encoded:
-# OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+# OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
