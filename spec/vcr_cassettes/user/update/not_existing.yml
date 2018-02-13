@@ -5,12 +5,12 @@ http_interactions:
     uri: https://example.com/user.update
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"fake","username":"jane@doe.com","metadata":{"first_name":"Jane","last_name":"Doe"}}'
+      string: '{"provider_user_id":"fake","username":"jane@doe.com","metadata":{"first_name":"Jane","last_name":"Denizet"}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Fri, 10 Nov 2017 09:18:01 GMT
+      - Tue, 13 Feb 2018 08:38:35 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -35,7 +35,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - iks96ima9l91ma1kjr2nb11g6uctfiu1
+      - tdd4olsrgumuqmua19dh86cnennc1ial
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
@@ -43,5 +43,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Fri, 10 Nov 2017 09:18:01 GMT
+  recorded_at: Tue, 13 Feb 2018 08:38:26 GMT
 recorded_with: VCR 3.0.3

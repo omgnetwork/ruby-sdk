@@ -5,12 +5,12 @@ http_interactions:
     uri: https://example.com/user.create
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"userOMGShopAPITest","username":"john@doe.com","metadata":{"first_name":"John","last_name":"Denizet"}}'
+      string: '{"provider_user_id":"userOMGShopAPITest01","username":"john@doe.com","metadata":{"first_name":"John","last_name":"Doe"}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,22 +25,22 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Wed, 08 Nov 2017 05:08:00 GMT
+      - Tue, 13 Feb 2018 08:41:20 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Content-Length:
-      - '220'
+      - '218'
       Connection:
       - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 35jpjncujkpmdvkoteq4v8dfc62s04qb
+      - hnftui894f6rvummm4ooqhbthkrlvt4v
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"username":"john@doe.com","provider_user_id":"userOMGShopAPITest","object":"user","metadata":{"last_name":"Denizet","first_name":"John"},"id":"e8bca0a9-bbe4-448d-9ba8-a9f5c9ef394b"}}'
+      string: '{"version":"1","success":true,"data":{"username":"john@doe.com","provider_user_id":"userOMGShopAPITest01","object":"user","metadata":{"last_name":"Doe","first_name":"John"},"id":"c2d3f98b-cd56-406e-a779-bef901f26465"}}'
     http_version: 
-  recorded_at: Wed, 08 Nov 2017 05:07:49 GMT
+  recorded_at: Tue, 13 Feb 2018 08:41:10 GMT
 recorded_with: VCR 3.0.3

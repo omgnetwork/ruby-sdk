@@ -5,7 +5,7 @@ module OmiseGO
     let(:config) { OmiseGO::Configuration.new }
     let(:client) { OmiseGO::Client.new(config) }
     let(:request) { OmiseGO::Request.new(client) }
-    let(:conn) { Faraday.new(url: 'https://example.com') }
+    let(:conn) { Faraday.new(url: ENV['EWALLET_URL']) }
 
     describe '#send' do
       context 'valid json response' do

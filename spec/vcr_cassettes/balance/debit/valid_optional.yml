@@ -5,18 +5,18 @@ http_interactions:
     uri: https://example.com/user.debit_balance
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"user01","token_id":"OMG:d19926d5-3f02-42fe-a643-e53806e644d6","amount":10000,"metadata":{},"account_id":"ad9454e1-2d07-4356-bb7a-d635b69b8c69","burn_balance_identifier":"burn"}'
+      string: '{"provider_user_id":"provider_user_id01","token_id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194","amount":10000,"metadata":{},"account_id":"edbb9557-c37f-4511-b3ff-794fc553b8cf","burn_balance_identifier":"burn"}'
     headers:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer cmVwbGFjZV93aXRoX2FjY2Vzc19rZXk6cmVwbGFjZV93aXRoX3NlY3JldF9rZXk=
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
       - application/vnd.omisego.v1+json
       Idempotency-Token:
-      - 4c6c26bc-0428-408c-9bc6-21a34589d684
+      - a4d23102-32db-44b9-82c2-b00cca2b7018
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -25,20 +25,24 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - Cowboy
+      - nginx/1.13.5
       Date:
-      - Thu, 14 Dec 2017 04:29:15 GMT
-      Content-Length:
-      - '324'
+      - Tue, 13 Feb 2018 08:44:17 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '328'
+      Connection:
+      - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - tvapriuts8pmqifc091hjkk3nutseept
+      - ijlc4l0sr7nntotf9mgp3co60ln2ib7r
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:d19926d5-3f02-42fe-a643-e53806e644d6"},"amount":0}],"address":"0ed0db9c-e8d4-4de4-b3ac-8a919c646fba"}]}}'
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":18000}],"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"}]}}'
     http_version: 
-  recorded_at: Thu, 14 Dec 2017 04:29:16 GMT
+  recorded_at: Tue, 13 Feb 2018 08:44:08 GMT
 recorded_with: VCR 3.0.3

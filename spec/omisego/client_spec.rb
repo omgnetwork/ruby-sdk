@@ -7,11 +7,11 @@ module OmiseGO
         it 'overrides the values in the configuration' do
           config = OmiseGO::Client.new(access_key: 'access_key',
                                        secret_key: 'secret_key',
-                                       base_url: 'https://example.com').config
+                                       base_url: ENV['EWALLET_URL']).config
           expect(config.access_key).to eq('access_key')
           expect(config.secret_key).to eq('secret_key')
           expect(config.api_version).to eq('1')
-          expect(config.base_url).to eq('https://example.com')
+          expect(config.base_url).to eq(ENV['EWALLET_URL'])
           expect(config.auth_scheme).to eq('OMGServer')
         end
       end
