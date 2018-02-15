@@ -49,6 +49,42 @@ If initialized this way, the `OmiseGO` classes can be used without specifying th
 user = OmiseGO::User.find(provider_user_id: 'some_uuid')
 ```
 
+### Logging
+
+The Ruby SDK comes with the possibility to log requests to the eWallet. For example, within a Rails application, the following can be defined:
+
+```
+# config/initializers/omisego.rb
+OmiseGO.configure do |config|
+  config.access_key = ENV['OMISEGO_ACCESS_KEY']
+  config.secret_key = ENV['OMISEGO_SECRET_KEY']
+  config.base_url   = ENV['OMISEGO_BASE_URL']
+  config.logger     = Rails.logger
+end
+```
+
+This would provide the following in the logs:
+
+```
+[OmiseGO] Request: POST login
+User-Agent: Faraday v0.13.1
+Authorization: [FILTERED]
+Accept: application/vnd.omisego.v1+json
+Content-Type: application/vnd.omisego.v1+json
+
+{"provider_user_id":"aeab0d51-b3d9-415d-98ef-f9162903f024"}
+
+[OmiseGO] Response: HTTP/200
+Connection: close
+Server: Cowboy
+Date: Wed, 14 Feb 2018 04:35:52 GMT
+Content-Length: 140
+Content-Type: application/vnd.omisego.v1+json; charset=utf-8
+Cache-Control: max-age=0, private, must-revalidate
+
+{"version":"1","success":true,"data":{"object":"authentication_token","authentication_token":[FILTERED]}}
+```
+
 ### Client init
 
 With this approach, the client needs to be passed in every call and will be used as the call initiator.
