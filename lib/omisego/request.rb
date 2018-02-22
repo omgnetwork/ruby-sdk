@@ -1,5 +1,7 @@
 module OmiseGO
   class Request
+    PARAM_FIELDS = %i[page per_page search_term search_terms sort_by sort_dir].freeze
+
     def initialize(client)
       @client = client
       @config = @client.config
@@ -38,13 +40,8 @@ module OmiseGO
     private
 
     def add_params(body, params)
-      body[:page] = params[:page] if params[:page]
-      body[:per_page] = params[:per_page] if params[:per_page]
-      body[:search_terms] = params[:search_terms] if params[:search_terms]
-      body[:search_term] = params[:search_term] if !params[:search_terms] && params[:search_term]
-      body[:sort_by] = params[:sort_by] if params[:sort_by]
-      body[:sort_dir] = params[:sort_dir] if params[:sort_dir]
-      body
+      params = params.select { |key, _| PARAM_FIELDS.include?(key) }
+      body.merge(params)
     end
 
     def error(code, description)

@@ -11,4 +11,4 @@ Metrics/ParameterLists:
 Metrics/AbcSize:
   Enabled: false
 Metrics/MethodLength:
-  Max: 22
+  Max: 24

@@ -31,7 +31,7 @@ module OmiseGO
               sort_by: 'created_at',
               sort_dir: 'desc',
               search_params: {
-                status: "confirmed"
+                status: 'confirmed'
               }
             },
             client: client
@@ -69,7 +69,7 @@ module OmiseGO
               sort_by: 'created_at',
               sort_dir: 'desc',
               search_params: {
-                status: "confirmed"
+                status: 'confirmed'
               }
             },
             client: client
