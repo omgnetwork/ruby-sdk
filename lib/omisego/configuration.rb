@@ -18,7 +18,8 @@ module OmiseGO
         balance: OmiseGO::Balance,
         minted_token: OmiseGO::MintedToken,
         list: OmiseGO::List,
-        setting: OmiseGO::Setting
+        setting: OmiseGO::Setting,
+        transaction: OmiseGO::Transaction
       }
     }.freeze
 

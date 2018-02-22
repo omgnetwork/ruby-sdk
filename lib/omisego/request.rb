@@ -5,8 +5,9 @@ module OmiseGO
       @config = @client.config
     end
 
-    def send(path, body, conn: new_conn)
+    def send(path, body, params: {}, conn: new_conn)
       idempotency_token = body.delete(:idempotency_token)
+      body = add_params(body, params)
 
       response = conn.post do |req|
         req.url path
@@ -35,6 +36,16 @@ module OmiseGO
     end
 
     private
+
+    def add_params(body, params)
+      body[:page] = params[:page] if params[:page]
+      body[:per_page] = params[:per_page] if params[:per_page]
+      body[:search_terms] = params[:search_terms] if params[:search_terms]
+      body[:search_term] = params[:search_term] if !params[:search_terms] && params[:search_term]
+      body[:sort_by] = params[:sort_by] if params[:sort_by]
+      body[:sort_dir] = params[:sort_dir] if params[:sort_dir]
+      body
+    end
 
     def error(code, description)
       Response.new({

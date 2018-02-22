@@ -18,6 +18,7 @@ require 'omisego/balance'
 require 'omisego/address'
 require 'omisego/user'
 require 'omisego/authentication_token'
+require 'omisego/transaction'
 
 require 'omisego/version'
 require 'omisego/configuration'

@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.list_transactions
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"provider_user_id01","address":null,"page":2,"per_page":2,"sort_by":"created_at","sort_dir":"desc"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Thu, 22 Feb 2018 09:21:42 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '1122'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 91n81jb8elq0nqgakrjqegt0mquadpjn
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-02-13T08:44:15.475009Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"dd781e73-66a9-47fd-affa-eac87f1885aa","id":"6ac266b7-b828-44a1-8027-8deeb167e6e9","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:15.433040Z","amount":10000},{"updated_at":"2018-02-13T08:44:14.859715Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"ad8696f8-b242-4cf2-b7ce-891091887d69","id":"6a25a403-f648-4464-8104-2a80632bd983","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:14.832258Z","amount":10000}]}}'
+    http_version: 
+  recorded_at: Thu, 22 Feb 2018 09:21:22 GMT
+recorded_with: VCR 3.0.3
