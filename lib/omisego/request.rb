@@ -1,12 +1,15 @@
 module OmiseGO
   class Request
+    PARAM_FIELDS = %i[page per_page search_term search_terms sort_by sort_dir].freeze
+
     def initialize(client)
       @client = client
       @config = @client.config
     end
 
-    def send(path, body, conn: new_conn)
+    def send(path, body, params: {}, conn: new_conn)
       idempotency_token = body.delete(:idempotency_token)
+      body = add_params(body, params)
 
       response = conn.post do |req|
         req.url path
@@ -35,6 +38,11 @@ module OmiseGO
     end
 
     private
+
+    def add_params(body, params)
+      params = params.select { |key, _| PARAM_FIELDS.include?(key) }
+      body.merge(params)
+    end
 
     def error(code, description)
       Response.new({

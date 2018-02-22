@@ -1,6 +1,6 @@
 # OmiseGO
 
-OmiseGO is a Ruby SDK meant to communicate with an OmiseGO Wallet setup.
+OmiseGO is a Ruby SDK meant to communicate with an OmiseGO eWallet setup.
 
 ## Beta Usage
 
@@ -109,7 +109,7 @@ __The method `#error?` can be used on any model to check if it's an error or a v
 
 #### Find
 
-Retrieve a user from the Wallet API.
+Retrieve a user from the eWallet API.
 
 ```
 user = OmiseGO::User.find(
@@ -123,7 +123,7 @@ Returns either:
 
 #### Create
 
-Create a user in the Wallet API database. The `provider_user_id` is how a user is identified and cannot be changed later on.
+Create a user in the eWallet API database. The `provider_user_id` is how a user is identified and cannot be changed later on.
 
 ```
 user = OmiseGO::User.create(
@@ -142,7 +142,7 @@ Returns either:
 
 #### Update
 
-Update a user in the Wallet API database. All fields need to be provided and the values in the Wallet database will be replaced with the sent ones (behaves like a HTTP `PUT`). Sending `metadata: {}` in the request below would remove the `first_name` and `last_name` fields for example.
+Update a user in the eWallet API database. All fields need to be provided and the values in the eWallet database will be replaced with the sent ones (behaves like a HTTP `PUT`). Sending `metadata: {}` in the request below would remove the `first_name` and `last_name` fields for example.
 
 ```
 user = OmiseGO::User.update(
@@ -163,7 +163,7 @@ Returns either:
 
 #### Login
 
-Login a user and retrieve an `authentication_token` that can be passed to a mobile client to make calls to the Wallet API directly.
+Login a user and retrieve an `authentication_token` that can be passed to a mobile client to make calls to the eWallet API directly.
 
 ```
 auth_token = OmiseGO::User.login(
@@ -197,13 +197,14 @@ Returns either:
 
 #### Credit
 
-Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the master wallet to the specified user's wallet.
+Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the master wallet to the specified user's wallet. In the following methods, an idempotency token is used to ensure that one specific credit/debit occurs only once. The implementer is responsible for ensuring that those idempotency tokens are unique - sending the same one two times will prevent the second transaction from happening.
 
 ```
 address = OmiseGO::Balance.credit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
+  idempotency_token: "123",
   metadata: {}
 )
 ```
@@ -216,6 +217,7 @@ address = OmiseGO::Balance.credit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
+  idempotency_token: "123",
   metadata: {}
 )
 ```
@@ -229,6 +231,7 @@ address = OmiseGO::Balance.debit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
+  idempotency_token: "123",
   metadata: {}
 )
 ```
@@ -241,6 +244,7 @@ address = OmiseGO::Balance.debit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
+  idempotency_token: "123",
   metadata: {}
 )
 ```
@@ -254,6 +258,7 @@ address = OmiseGO::Balance.debit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
+  idempotency_token: "123",
   metadata: {}
 )
 ```
@@ -262,7 +267,7 @@ address = OmiseGO::Balance.debit(
 
 #### All
 
-Retrieve the settings from the Wallet API.
+Retrieve the settings from the eWallet API.
 
 ```
 settings = OmiseGO::Setting.all
@@ -271,6 +276,89 @@ settings = OmiseGO::Setting.all
 Returns either:
 - An `OmiseGO::Setting` instance
 - An `OmiseGO::Error` instance
+
+
+### Listing transactions
+
+#### Params
+
+Some parameters can be given to the two following methods to customize the returned results. With them, the list of results can be paginated, sorted and searched.
+
+- `page`: The page you wish to receive.
+- `per_page`: The offset to use for pagination.
+- `sort_by`: The sorting field. Available values: `id`, `status`, `from`, `to`, `created_at`, `updated_at`
+- `sort_dir`: The sorting direction. Available values: `asc`, `desc`
+- `search_term`: A term to search for in ALL of the searchable fields. Conflict with `search_terms`, only use one of them. See list of searchable fields below (same as `search_terms`).
+- `search_terms`: A hash of fields to search in:  
+
+```
+{
+  search_terms: {
+    from: "address_1"
+  }
+}
+```
+
+Available values: `id`, `idempotency_token`, `status`, `from`, `to`
+
+#### All
+
+Get the list of transactions from the eWallet API.
+
+```
+transaction = OmiseGO::Transaction.all
+```
+
+Returns either:
+- An `OmiseGO::List` instance of `OmiseGO::Transaction` instances
+- An `OmiseGO::Error` instance
+
+Parameters can be specified in the following way:
+
+```
+transaction = OmiseGO::Transaction.all(params: {
+  page: 1,
+  per_page: 10,
+  sort_by: 'created_at',
+  sort_dir: 'desc',
+  search_terms: {
+    from: "address_1",
+    to: "address_2",
+    status: "confirmed"
+  }
+})
+```
+
+#### All for user
+
+Get the list of transactions for a specific provider user ID from the eWallet API.
+
+```
+transaction = OmiseGO::Transaction.all_for_user(
+  provider_user_id: "some_uuid"
+)
+```
+
+Returns either:
+- An `OmiseGO::List` instance of `OmiseGO::Transaction` instances
+- An `OmiseGO::Error` instance
+
+Parameters can be specified in the following way:
+
+```
+transaction = OmiseGO::Transaction.all(params: {
+  page: 1,
+  per_page: 10,
+  sort_by: 'created_at',
+  sort_dir: 'desc',
+  search_terms: {
+    from: "address_1",
+    status: "confirmed"
+  }
+})
+```
+
+Since those transactions are already scoped down to the given user, it is NOT POSSIBLE to specify both `from` AND `to` in the `search_terms`. Doing so will result in the API ignoring both of those fields for the search.
 
 ## Models
 
@@ -312,6 +400,18 @@ Attributes:
 - `username` (string)
 - `provider_user_id` (string)
 - `metadata` (hash)
+
+### `OmiseGO::Transaction`
+
+- `id` (string)
+- `idempotency_token` (string)
+- `amount` (integer)
+- `minted_token` (`OmiseGO::MintedToken`)
+- `from` (string)
+- `to` (string)
+- `status` (string)
+- `created_at` (string)
+- `updated_at` (string)
 
 ### `OmiseGO::Error`
 

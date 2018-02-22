@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/user.list_transactions
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"provider_user_id01","address":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Thu, 22 Feb 2018 09:21:41 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '3059'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - no44qi1s99tuvadm3eqv6b6m3n5uscg8
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":10,"is_last_page":true,"is_first_page":true,"current_page":1},"object":"list","data":[{"updated_at":"2018-02-13T08:08:10.495040Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"43ede086-8304-4b25-9f4f-86b1df0b73b3","id":"b1982cf3-d19f-434f-ba57-d175c218534f","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:08:10.290806Z","amount":10000},{"updated_at":"2018-02-13T08:08:11.862915Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"0e9d14d8-f81f-4b31-864f-2537277794fb","id":"e690209c-8f37-4184-a3ea-0150f528736c","from":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","created_at":"2018-02-13T08:08:11.822822Z","amount":1000},{"updated_at":"2018-02-13T08:44:14.859715Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"ad8696f8-b242-4cf2-b7ce-891091887d69","id":"6a25a403-f648-4464-8104-2a80632bd983","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:14.832258Z","amount":10000},{"updated_at":"2018-02-13T08:44:15.475009Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"dd781e73-66a9-47fd-affa-eac87f1885aa","id":"6ac266b7-b828-44a1-8027-8deeb167e6e9","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:15.433040Z","amount":10000},{"updated_at":"2018-02-13T08:44:16.407028Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"e6a900a4-bacd-47f1-b107-2112fd1e5255","id":"3540b70c-98b0-471a-b41f-c429d32a6879","from":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","created_at":"2018-02-13T08:44:16.359498Z","amount":1000},{"updated_at":"2018-02-13T08:44:17.351002Z","to":"6d97eb9d-3736-462a-9424-f9d0f662afcf","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"a4d23102-32db-44b9-82c2-b00cca2b7018","id":"e4a49773-98a1-4d70-947f-29494133e4c6","from":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","created_at":"2018-02-13T08:44:17.294055Z","amount":10000}]}}'
+    http_version: 
+  recorded_at: Thu, 22 Feb 2018 09:21:21 GMT
+recorded_with: VCR 3.0.3

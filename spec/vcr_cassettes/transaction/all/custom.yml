@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/transaction.all
+    body:
+      encoding: UTF-8
+      string: '{"page":2,"per_page":2,"sort_by":"created_at","sort_dir":"desc"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Thu, 22 Feb 2018 09:21:40 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '1105'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ou9h8966s77dcam1ihlgnunqj30n97ej
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-02-20T05:15:03.880233Z","to":"969b7bea-85d8-436c-bec4-d92372b633ba","status":"confirmed","object":"transaction","minted_token":{"symbol":"MNT","subunit_to_unit":100,"object":"minted_token","name":"Mint","id":"MNT:e8144a1b-1fd3-4714-b416-26c9b350d9dd"},"idempotency_token":"8425f824-5c40-4269-9076-746e614b323e","id":"fe3e8a50-207d-47dd-a041-7368b720f3ad","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-20T05:15:03.727332Z","amount":28},{"updated_at":"2018-02-19T07:32:32.019916Z","to":"969b7bea-85d8-436c-bec4-d92372b633ba","status":"confirmed","object":"transaction","minted_token":{"symbol":"MNT","subunit_to_unit":100,"object":"minted_token","name":"Mint","id":"MNT:e8144a1b-1fd3-4714-b416-26c9b350d9dd"},"idempotency_token":"f08eb451-164b-4765-9c8c-8a3ae70ee8c2","id":"bb7d13b9-56c4-42e2-9a8d-76cf6768c334","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-19T07:32:31.996716Z","amount":1}]}}'
+    http_version:
+  recorded_at: Thu, 22 Feb 2018 09:21:20 GMT
+recorded_with: VCR 3.0.3

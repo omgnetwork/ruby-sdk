@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/transaction.all
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Thu, 22 Feb 2018 09:21:40 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '4900'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - mid2g8ojg9e841tudt5j77fqtdcaif20
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":10,"is_last_page":false,"is_first_page":true,"current_page":1},"object":"list","data":[{"updated_at":"2018-01-26T20:35:57.630983Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"dd98df5b-a0d9-4c2c-ab39-aa3abf8fd19e","id":"36e53cfc-029d-4c4a-bdc7-ef9a71a7d432","from":"genesis","created_at":"2018-01-26T20:35:57.492041Z","amount":10000000000},{"updated_at":"2018-01-26T20:35:57.679678Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"KNC","subunit_to_unit":1000,"object":"minted_token","name":"Kyber","id":"KNC:2142821e-e45e-4514-a14d-e808519cec8f"},"idempotency_token":"eac63dca-d3c3-4374-a54e-135dded757e2","id":"4a718e76-ef17-414e-acb4-d2ff5154a017","from":"genesis","created_at":"2018-01-26T20:35:57.646093Z","amount":1000000000},{"updated_at":"2018-01-26T20:35:57.731043Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"idempotency_token":"b5b6082b-2dc3-4a63-8739-b936f3239a78","id":"7448db29-1f44-4f1b-ad05-8b4892da184f","from":"genesis","created_at":"2018-01-26T20:35:57.697201Z","amount":10000000000},{"updated_at":"2018-01-26T20:35:57.786112Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"MNT","subunit_to_unit":100,"object":"minted_token","name":"Mint","id":"MNT:e8144a1b-1fd3-4714-b416-26c9b350d9dd"},"idempotency_token":"839a3e46-ac1c-4a71-8cc0-75cfbdb2038b","id":"c4127099-8204-4b8d-9da0-d547c2d3bd33","from":"genesis","created_at":"2018-01-26T20:35:57.752186Z","amount":100000000},{"updated_at":"2018-01-26T20:35:57.840298Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"minted_token","name":"Ether","id":"ETH:c42c844b-ae43-426a-8211-1d347bce002c"},"idempotency_token":"f73e6995-474f-4bdf-b10f-9783b378fad7","id":"9e83138a-928d-4254-a1ba-26f642d9f288","from":"genesis","created_at":"2018-01-26T20:35:57.807244Z","amount":1000000000000000000000000},{"updated_at":"2018-02-13T08:08:10.495040Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"43ede086-8304-4b25-9f4f-86b1df0b73b3","id":"b1982cf3-d19f-434f-ba57-d175c218534f","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:08:10.290806Z","amount":10000},{"updated_at":"2018-02-13T08:08:11.862915Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"0e9d14d8-f81f-4b31-864f-2537277794fb","id":"e690209c-8f37-4184-a3ea-0150f528736c","from":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","created_at":"2018-02-13T08:08:11.822822Z","amount":1000},{"updated_at":"2018-02-13T08:44:14.859715Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"ad8696f8-b242-4cf2-b7ce-891091887d69","id":"6a25a403-f648-4464-8104-2a80632bd983","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:14.832258Z","amount":10000},{"updated_at":"2018-02-13T08:44:15.475009Z","to":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"dd781e73-66a9-47fd-affa-eac87f1885aa","id":"6ac266b7-b828-44a1-8027-8deeb167e6e9","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-13T08:44:15.433040Z","amount":10000},{"updated_at":"2018-02-13T08:44:16.407028Z","to":"b0f8d17e-85be-4261-852b-d7aa6252476d","status":"confirmed","object":"transaction","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"idempotency_token":"e6a900a4-bacd-47f1-b107-2112fd1e5255","id":"3540b70c-98b0-471a-b41f-c429d32a6879","from":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","created_at":"2018-02-13T08:44:16.359498Z","amount":1000}]}}'
+    http_version: 
+  recorded_at: Thu, 22 Feb 2018 09:21:20 GMT
+recorded_with: VCR 3.0.3
