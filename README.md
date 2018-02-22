@@ -285,7 +285,7 @@ Returns either:
 Some parameters can be given to the two following methods to customize the returned results. With them, the list of results can be paginated, sorted and searched.
 
 - `page`: The page you wish to receive.
-- `per_page`: The offset to use for pagination.
+- `per_page`: The number of results per page.
 - `sort_by`: The sorting field. Available values: `id`, `status`, `from`, `to`, `created_at`, `updated_at`
 - `sort_dir`: The sorting direction. Available values: `asc`, `desc`
 - `search_term`: A term to search for in ALL of the searchable fields. Conflict with `search_terms`, only use one of them. See list of searchable fields below (same as `search_terms`).
