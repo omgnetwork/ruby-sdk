@@ -17,8 +17,18 @@ module OmiseGO
           transactions = OmiseGO::Transaction.all(client: client)
 
           expect(transactions).to be_kind_of OmiseGO::List
-          expect(transactions.data.first).to be_kind_of OmiseGO::Transaction
           expect(transactions.data.count).to eq 10
+
+          pagination = transactions.pagination
+          expect(pagination.per_page).to eq 10
+          expect(pagination.current_page).to eq 1
+
+          transaction = transactions.data.first
+          expect(transaction).to be_kind_of OmiseGO::Transaction
+
+          expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
+          expect(transaction.to).to be_kind_of OmiseGO::TransactionSource
+          expect(transaction.exchange).to be_kind_of OmiseGO::Exchange
         end
       end
 
@@ -55,7 +65,7 @@ module OmiseGO
 
           expect(transactions).to be_kind_of OmiseGO::List
           expect(transactions.data.first).to be_kind_of OmiseGO::Transaction
-          expect(transactions.data.count).to eq 6
+          expect(transactions.data.count).to eq 10
         end
       end
 

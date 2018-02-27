@@ -1,6 +1,6 @@
 module OmiseGO
   class List < Base
-    attributes :data
+    attributes :data, :pagination
 
     def first
       data.first
@@ -12,6 +12,12 @@ module OmiseGO
 
     def [](i)
       data[i]
+    end
+
+    def pagination
+      @_pagination ||= if (pag = @original_payload['pagination'])
+                         Pagination.new(pag)
+                       end
     end
 
     def data
