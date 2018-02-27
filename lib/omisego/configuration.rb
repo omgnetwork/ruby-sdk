@@ -19,7 +19,9 @@ module OmiseGO
         minted_token: OmiseGO::MintedToken,
         list: OmiseGO::List,
         setting: OmiseGO::Setting,
-        transaction: OmiseGO::Transaction
+        transaction: OmiseGO::Transaction,
+        exchange: OmiseGO::Exchange,
+        transaction_source: OmiseGO::TransactionSource
       }
     }.freeze
 

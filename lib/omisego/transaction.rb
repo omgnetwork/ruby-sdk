@@ -1,7 +1,7 @@
 module OmiseGO
   class Transaction < Base
-    attributes :id, :idempotency_token, :amount, :minted_token, :from, :to, :status,
-               :created_at, :updated_at
+    attributes :id, :idempotency_token, :amount, :from, :to, :exchange,
+               :status, :created_at, :updated_at
 
     class << self
       def all(params: {}, client: nil)
@@ -16,6 +16,18 @@ module OmiseGO
 
         request(client).send('user.list_transactions', body, params: params).data
       end
+    end
+
+    def from
+      @_from ||= TransactionSource.new(@from)
+    end
+
+    def to
+      @_to ||= TransactionSource.new(@to)
+    end
+
+    def exchange
+      @_exchange ||= Exchange.new(@exchange)
     end
   end
 end

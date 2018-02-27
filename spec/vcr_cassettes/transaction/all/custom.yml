@@ -25,22 +25,22 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Thu, 22 Feb 2018 09:21:40 GMT
+      - Tue, 27 Feb 2018 03:32:40 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Content-Length:
-      - '1105'
+      - '1700'
       Connection:
       - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ou9h8966s77dcam1ihlgnunqj30n97ej
+      - oftnuss9druc3grar4lnoe502rhs1pmc
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-02-20T05:15:03.880233Z","to":"969b7bea-85d8-436c-bec4-d92372b633ba","status":"confirmed","object":"transaction","minted_token":{"symbol":"MNT","subunit_to_unit":100,"object":"minted_token","name":"Mint","id":"MNT:e8144a1b-1fd3-4714-b416-26c9b350d9dd"},"idempotency_token":"8425f824-5c40-4269-9076-746e614b323e","id":"fe3e8a50-207d-47dd-a041-7368b720f3ad","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-20T05:15:03.727332Z","amount":28},{"updated_at":"2018-02-19T07:32:32.019916Z","to":"969b7bea-85d8-436c-bec4-d92372b633ba","status":"confirmed","object":"transaction","minted_token":{"symbol":"MNT","subunit_to_unit":100,"object":"minted_token","name":"Mint","id":"MNT:e8144a1b-1fd3-4714-b416-26c9b350d9dd"},"idempotency_token":"f08eb451-164b-4765-9c8c-8a3ae70ee8c2","id":"bb7d13b9-56c4-42e2-9a8d-76cf6768c334","from":"b0f8d17e-85be-4261-852b-d7aa6252476d","created_at":"2018-02-19T07:32:31.996716Z","amount":1}]}}'
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-02-26T09:15:11.059495Z","to":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":500000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"status":"confirmed","object":"transaction","idempotency_token":"59a1f814-170f-492d-b05c-cb4912313044","id":"82701bfc-16bd-40e9-8b6d-adb642314a75","from":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":500000,"address":"e9a9b8d7-f81b-420e-9b17-23f1584da1ae"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-02-26T09:15:11.038349Z"},{"updated_at":"2018-02-26T09:11:04.025893Z","to":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":1000000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"status":"confirmed","object":"transaction","idempotency_token":"72fbd3d6-f735-48b7-8758-6b5e2ec7b3c8","id":"7f9eba2a-7c6b-4ddf-a25c-04999f724eed","from":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":1000000,"address":"e9a9b8d7-f81b-420e-9b17-23f1584da1ae"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-02-26T09:11:04.006039Z"}]}}'
     http_version:
-  recorded_at: Thu, 22 Feb 2018 09:21:20 GMT
+  recorded_at: Tue, 27 Feb 2018 03:32:37 GMT
 recorded_with: VCR 3.0.3
