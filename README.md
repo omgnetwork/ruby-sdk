@@ -2,14 +2,6 @@
 
 OmiseGO is a Ruby SDK meant to communicate with an OmiseGO eWallet setup.
 
-## Beta Usage
-
-Until the `omisego` gem is released, this SDK should be used by pulling the source code directly:
-
-```
-gem 'omisego', '0.9.0', git: 'ssh://git@github.com/omisego/ruby-sdk.git', tag: 'v0.9.0'
-```
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -381,10 +373,19 @@ Attributes:
 Attributes:
 - `authentication_token` (string)
 
+### `OmiseGO::Pagination`
+
+Attributes
+- `per_page` (integer)
+- `current_page` (integer)
+- `is_first_page` (boolean)
+- `is_last_page` (boolean)
+
 ### `OmiseGO::List`
 
 Attributes:
 - `data` (array of models)
+- `pagination` (OmiseGO::Pagination)
 
 ### `OmiseGO::MintedToken`
 
@@ -401,14 +402,25 @@ Attributes:
 - `provider_user_id` (string)
 - `metadata` (hash)
 
+### `OmiseGO::Exchange`
+
+- `rate` (integer)
+
+### `OmiseGO::TransactionSource`
+
+- `address` (string)
+- `amount` (integer)
+- `minted_token` (`OmiseGO::MintedToken`)
+
 ### `OmiseGO::Transaction`
 
 - `id` (string)
 - `idempotency_token` (string)
 - `amount` (integer)
 - `minted_token` (`OmiseGO::MintedToken`)
-- `from` (string)
-- `to` (string)
+- `from` (`OmiseGO::TransactionSource`)
+- `to` (`OmiseGO::TransactionSource`)
+- `exchange` (`OmiseGO::Exchange`)
 - `status` (string)
 - `created_at` (string)
 - `updated_at` (string)
@@ -430,6 +442,6 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## License
+# License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The OmiseGO eWallet is released under the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
