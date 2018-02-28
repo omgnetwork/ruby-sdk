@@ -444,4 +444,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 # License
 
-The OmiseGO eWallet is released under the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
+The OmiseGO Ruby SDK is released under the [Apache License](https://www.apache.org/licenses/LICENSE-2.0).
