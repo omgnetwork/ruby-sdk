@@ -32,6 +32,7 @@ module OmiseGO
           expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
           expect(transaction.to).to be_kind_of OmiseGO::TransactionSource
           expect(transaction.exchange).to be_kind_of OmiseGO::Exchange
+          expect(transaction.metadata).to eq({})
         end
       end
 

@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 13 Feb 2018 08:38:30 GMT
+      - Mon, 05 Mar 2018 07:51:01 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -35,7 +35,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - rv5lh6cu9nllom9qabjgv3smavot27ag
+      - dni0tenk93ol0ccedq0cmgfh0mb8m65g
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
@@ -43,5 +43,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Tue, 13 Feb 2018 08:38:21 GMT
+  recorded_at: Mon, 05 Mar 2018 07:50:53 GMT
 recorded_with: VCR 3.0.3

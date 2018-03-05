@@ -122,9 +122,11 @@ module OmiseGO
       context 'when valid parameters' do
         it 'creates and retrieves the user' do
           VCR.use_cassette('user/create/valid') do
+            email = 'john2@doe.com'
+
             user = OmiseGO::User.create(
-              provider_user_id: 'userOMGShopAPITest01',
-              username: 'john@doe.com',
+              provider_user_id: 'userOMGShopAPITest02',
+              username: email,
               metadata: {
                 first_name: 'John',
                 last_name: 'Doe'
@@ -132,7 +134,7 @@ module OmiseGO
               client: client
             )
             expect(user).to be_kind_of OmiseGO::User
-            expect(user.username).to eq 'john@doe.com'
+            expect(user.username).to eq email
           end
         end
       end

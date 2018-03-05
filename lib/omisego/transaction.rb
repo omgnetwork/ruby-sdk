@@ -1,7 +1,7 @@
 module OmiseGO
   class Transaction < Base
     attributes :id, :idempotency_token, :amount, :from, :to, :exchange,
-               :status, :created_at, :updated_at
+               :metadata, :status, :created_at, :updated_at
 
     class << self
       def all(params: {}, client: nil)
