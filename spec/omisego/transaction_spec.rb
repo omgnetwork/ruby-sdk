@@ -20,8 +20,11 @@ module OmiseGO
           expect(transactions.data.count).to eq 10
 
           pagination = transactions.pagination
+          expect(pagination).to be_kind_of OmiseGO::Pagination
           expect(pagination.per_page).to eq 10
           expect(pagination.current_page).to eq 1
+          expect(pagination.first_page?).to eq true
+          expect(pagination.last_page?).to eq false
 
           transaction = transactions.data.first
           expect(transaction).to be_kind_of OmiseGO::Transaction
