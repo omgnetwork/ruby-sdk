@@ -378,8 +378,8 @@ Attributes:
 Attributes
 - `per_page` (integer)
 - `current_page` (integer)
-- `is_first_page` (boolean)
-- `is_last_page` (boolean)
+- `first_page?` (boolean)
+- `last_page?` (boolean)
 
 ### `OmiseGO::List`
 
