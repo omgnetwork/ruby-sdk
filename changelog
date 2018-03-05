@@ -1,0 +1,21 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.9.5] - 2017-03-05
+
+### Added
+
+- Add Oozou to AUTHORS file
+- Add support for Metadata in `OmiseGO::Transaction`
+
+### Changed
+
+- Change pagination method to follow Ruby conventions
+- Add tests checking those pagination methods
+- Re-generated VCR cassettes

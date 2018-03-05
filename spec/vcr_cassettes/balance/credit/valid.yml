@@ -16,7 +16,7 @@ http_interactions:
       Content-Type:
       - application/vnd.omisego.v1+json
       Idempotency-Token:
-      - ad8696f8-b242-4cf2-b7ce-891091887d69
+      - aa71bca3-cff9-4469-8ef3-a7e473f75b56
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 13 Feb 2018 08:44:14 GMT
+      - Mon, 05 Mar 2018 07:50:56 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Content-Length:
@@ -37,12 +37,12 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - bjo6vtb36vm79o9aofuva53f8nj0ttas
+      - fknanktc4nn2aad9q39c49i18q12b059
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":19000}],"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"}]}}'
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"object":"address","balances":[{"object":"balance","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":28000}],"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"}]}}'
     http_version: 
-  recorded_at: Tue, 13 Feb 2018 08:44:05 GMT
+  recorded_at: Mon, 05 Mar 2018 07:50:47 GMT
 recorded_with: VCR 3.0.3

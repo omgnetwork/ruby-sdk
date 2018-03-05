@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 13 Feb 2018 08:40:03 GMT
+      - Mon, 05 Mar 2018 07:51:02 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Content-Length:
@@ -35,12 +35,12 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - k467ebelb4rg03ovtilo3p0umqgjurq3
+      - vcs6u4s2urmqbnoretn5ino6lvtcidam
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
       string: '{"version":"1","success":true,"data":{"username":"user01","provider_user_id":"provider_user_id01","object":"user","metadata":{},"id":"48236187-9c5c-4568-8cdf-f0233d035574"}}'
     http_version: 
-  recorded_at: Tue, 13 Feb 2018 08:39:54 GMT
+  recorded_at: Mon, 05 Mar 2018 07:50:54 GMT
 recorded_with: VCR 3.0.3

@@ -25,22 +25,22 @@ http_interactions:
       Server:
       - nginx/1.13.5
       Date:
-      - Tue, 27 Feb 2018 03:32:40 GMT
+      - Mon, 05 Mar 2018 07:50:59 GMT
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Content-Length:
-      - '1700'
+      - '1722'
       Connection:
       - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - oftnuss9druc3grar4lnoe502rhs1pmc
+      - vestufk0h4qmcjetrkjsmk3ud0j7c277
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains;
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-02-26T09:15:11.059495Z","to":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":500000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"status":"confirmed","object":"transaction","idempotency_token":"59a1f814-170f-492d-b05c-cb4912313044","id":"82701bfc-16bd-40e9-8b6d-adb642314a75","from":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":500000,"address":"e9a9b8d7-f81b-420e-9b17-23f1584da1ae"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-02-26T09:15:11.038349Z"},{"updated_at":"2018-02-26T09:11:04.025893Z","to":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":1000000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"status":"confirmed","object":"transaction","idempotency_token":"72fbd3d6-f735-48b7-8758-6b5e2ec7b3c8","id":"7f9eba2a-7c6b-4ddf-a25c-04999f724eed","from":{"object":"transaction_source","minted_token":{"symbol":"BTC","subunit_to_unit":10000,"object":"minted_token","name":"Bitcoin","id":"BTC:7942f5f9-c08c-419f-b24e-b9f2d10f7128"},"amount":1000000,"address":"e9a9b8d7-f81b-420e-9b17-23f1584da1ae"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-02-26T09:11:04.006039Z"}]}}'
-    http_version:
-  recorded_at: Tue, 27 Feb 2018 03:32:37 GMT
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-03-05T07:50:56.787244Z","to":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"32213a14-df1f-429c-ab90-508f42319587","id":"4b18896f-5e37-4249-95e9-6820ecc1acbd","from":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-03-05T07:50:56.757166Z"},{"updated_at":"2018-03-05T07:50:56.161269Z","to":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"aa71bca3-cff9-4469-8ef3-a7e473f75b56","id":"b5547be4-67a0-4939-9d6c-25fb706ca6c9","from":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-03-05T07:50:56.019051Z"}]}}'
+    http_version: 
+  recorded_at: Mon, 05 Mar 2018 07:50:51 GMT
 recorded_with: VCR 3.0.3
