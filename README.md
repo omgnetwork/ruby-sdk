@@ -326,8 +326,10 @@ transaction = OmiseGO::Transaction.all(params: {
 Get the list of transactions for a specific provider user ID from the eWallet API.
 
 ```
-transaction = OmiseGO::Transaction.all_for_user(
-  provider_user_id: "some_uuid"
+transaction = OmiseGO::Transaction.all(
+  params: {
+    provider_user_id: "some_uuid"
+  }
 )
 ```
 
@@ -339,6 +341,7 @@ Parameters can be specified in the following way:
 
 ```
 transaction = OmiseGO::Transaction.all(params: {
+  provider_user_id: "some_uuid",
   page: 1,
   per_page: 10,
   sort_by: 'created_at',

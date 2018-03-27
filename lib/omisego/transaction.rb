@@ -1,11 +1,20 @@
 module OmiseGO
   class Transaction < Base
-    attributes :id, :idempotency_token, :amount, :from, :to, :exchange,
-               :metadata, :status, :created_at, :updated_at
+    attributes :id, :idempotency_token, :from, :to, :exchange,
+               :metadata, :encrypted_metadata, :status, :created_at
 
     class << self
       def all(params: {}, client: nil)
-        request(client).send('transaction.all', {}, params: params).data
+        if params[:provider_user_id]
+          all_for_user(
+            provider_user_id: params[:provider_user_id],
+            address: params[:address],
+            params: params,
+            client: client
+          )
+        else
+          request(client).send('transaction.all', {}, params: params).data
+        end
       end
 
       def all_for_user(provider_user_id:, address: nil, params: {}, client: nil)
