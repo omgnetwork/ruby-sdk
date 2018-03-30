@@ -57,6 +57,28 @@ module OmiseGO
           expect(transactions.data.first.created_at).to be > transactions.data.last.created_at
         end
       end
+
+      it 'retrieves all the transactions for a specific user' do
+        VCR.use_cassette('transaction/all_for_user/paginated') do
+          transactions = OmiseGO::Transaction.all(
+            params: {
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              page: 2,
+              per_page: 2,
+              sort_by: 'created_at',
+              sort_dir: 'desc',
+              search_params: {
+                status: 'confirmed'
+              }
+            },
+            client: client
+          )
+
+          expect(transactions).to be_kind_of OmiseGO::List
+          expect(transactions.data.first).to be_kind_of OmiseGO::Transaction
+          expect(transactions.data.count).to eq 10
+        end
+      end
     end
 
     describe '.all_for_user' do
