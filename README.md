@@ -6,7 +6,7 @@ OmiseGO is a Ruby SDK meant to communicate with an OmiseGO eWallet setup.
 
 Add this line to your application's Gemfile:
 
-```
+```ruby
 gem 'omisego'
 ```
 
@@ -26,7 +26,7 @@ In the end, the choice is yours and the optimal solution depends on your needs.
 
 ### Global init
 
-```
+```ruby
 # config/initializers/omisego.rb
 OmiseGO.configure do |config|
   config.access_key = ENV['OMISEGO_ACCESS_KEY']
@@ -37,7 +37,7 @@ end
 
 If initialized this way, the `OmiseGO` classes can be used without specifying the client.
 
-```
+```ruby
 user = OmiseGO::User.find(provider_user_id: 'some_uuid')
 ```
 
@@ -45,7 +45,7 @@ user = OmiseGO::User.find(provider_user_id: 'some_uuid')
 
 The Ruby SDK comes with the possibility to log requests to the eWallet. For example, within a Rails application, the following can be defined:
 
-```
+```ruby
 # config/initializers/omisego.rb
 OmiseGO.configure do |config|
   config.access_key = ENV['OMISEGO_ACCESS_KEY']
@@ -81,7 +81,7 @@ Cache-Control: max-age=0, private, must-revalidate
 
 With this approach, the client needs to be passed in every call and will be used as the call initiator.
 
-```
+```ruby
 client = OmiseGO::Client.new(
   access_key: ENV['OMISEGO_ACCESS_KEY'],
   secret_key: ENV['OMISEGO_SECRET_KEY'],
@@ -103,7 +103,7 @@ __The method `#error?` can be used on any model to check if it's an error or a v
 
 Retrieve a user from the eWallet API.
 
-```
+```ruby
 user = OmiseGO::User.find(
   provider_user_id: 'some_uuid'
 )
@@ -117,7 +117,7 @@ Returns either:
 
 Create a user in the eWallet API database. The `provider_user_id` is how a user is identified and cannot be changed later on.
 
-```
+```ruby
 user = OmiseGO::User.create(
   provider_user_id: 'some_uuid',
   username: 'john@doe.com',
@@ -136,7 +136,7 @@ Returns either:
 
 Update a user in the eWallet API database. All fields need to be provided and the values in the eWallet database will be replaced with the sent ones (behaves like a HTTP `PUT`). Sending `metadata: {}` in the request below would remove the `first_name` and `last_name` fields for example.
 
-```
+```ruby
 user = OmiseGO::User.update(
   provider_user_id: 'some_uuid',
   username: 'jane@doe.com',
@@ -157,7 +157,7 @@ Returns either:
 
 Login a user and retrieve an `authentication_token` that can be passed to a mobile client to make calls to the eWallet API directly.
 
-```
+```ruby
 auth_token = OmiseGO::User.login(
   provider_user_id: 'some_uuid'
 )
@@ -177,7 +177,7 @@ Returns either:
 
 Retrieve a list of addresses (with only one address for now) containing a list of balances.
 
-```
+```ruby
 address = OmiseGO::Balance.all(
   provider_user_id: 'some_uuid'
 )
@@ -191,7 +191,7 @@ Returns either:
 
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the master wallet to the specified user's wallet. In the following methods, an idempotency token is used to ensure that one specific credit/debit occurs only once. The implementer is responsible for ensuring that those idempotency tokens are unique - sending the same one two times will prevent the second transaction from happening.
 
-```
+```ruby
 address = OmiseGO::Balance.credit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
@@ -203,7 +203,7 @@ address = OmiseGO::Balance.credit(
 
 To use the primary balance of a specific account instead of the master account's as the sending balance, specify an `account_id`:
 
-```
+```ruby
 address = OmiseGO::Balance.credit(
   account_id: 'account_uuid',
   provider_user_id: 'some_uuid',
@@ -218,7 +218,7 @@ address = OmiseGO::Balance.credit(
 
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the specified user's wallet back to the master wallet.
 
-```
+```ruby
 address = OmiseGO::Balance.debit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
@@ -230,7 +230,7 @@ address = OmiseGO::Balance.debit(
 
 To use the primary balance of a specific account instead of the master account as the receiving balance, specify an `account_id`:
 
-```
+```ruby
 address = OmiseGO::Balance.debit(
   account_id: 'account_uuid',
   provider_user_id: 'some_uuid',
@@ -243,7 +243,7 @@ address = OmiseGO::Balance.debit(
 
 By default, points won't be burned and will be returned to the account's primary balance (either the master's balance or the account's specified with `account_id`). If you wish to burn points, send them to a burn address. By default, a burn address identified by `'burn'` is created for each account which can be set in the `burn_balance_identifier` field:
 
-```
+```ruby
 address = OmiseGO::Balance.debit(
   account_id: 'account_uuid',
   burn_balance_identifier: 'burn',
@@ -261,7 +261,7 @@ address = OmiseGO::Balance.debit(
 
 Retrieve the settings from the eWallet API.
 
-```
+```ruby
 settings = OmiseGO::Setting.all
 ```
 
@@ -283,7 +283,7 @@ Some parameters can be given to the two following methods to customize the retur
 - `search_term`: A term to search for in ALL of the searchable fields. Conflict with `search_terms`, only use one of them. See list of searchable fields below (same as `search_terms`).
 - `search_terms`: A hash of fields to search in:  
 
-```
+```ruby
 {
   search_terms: {
     from: "address_1"
@@ -297,7 +297,7 @@ Available values: `id`, `idempotency_token`, `status`, `from`, `to`
 
 Get the list of transactions from the eWallet API.
 
-```
+```ruby
 transaction = OmiseGO::Transaction.all
 ```
 
@@ -307,7 +307,7 @@ Returns either:
 
 Parameters can be specified in the following way:
 
-```
+```ruby
 transaction = OmiseGO::Transaction.all(params: {
   page: 1,
   per_page: 10,
@@ -325,7 +325,7 @@ transaction = OmiseGO::Transaction.all(params: {
 
 Get the list of transactions for a specific provider user ID from the eWallet API.
 
-```
+```ruby
 transaction = OmiseGO::Transaction.all(
   params: {
     provider_user_id: "some_uuid"
@@ -339,7 +339,7 @@ Returns either:
 
 Parameters can be specified in the following way:
 
-```
+```ruby
 transaction = OmiseGO::Transaction.all(params: {
   provider_user_id: "some_uuid",
   page: 1,
