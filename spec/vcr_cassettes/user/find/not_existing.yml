@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/user.get
+    uri: https://example.com/api/user.get
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"123"}'
@@ -23,25 +23,21 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.13.5
+      - Cowboy
       Date:
-      - Mon, 05 Mar 2018 07:51:03 GMT
-      Content-Type:
-      - application/json; charset=utf-8
+      - Thu, 24 May 2018 05:15:45 GMT
       Content-Length:
       - '194'
-      Connection:
-      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - g4kidrernj19nf11si8c6t70vmprvn7u
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains;
+      - 2konphtm02hi18mrlo003np1
     body:
       encoding: UTF-8
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Mon, 05 Mar 2018 07:50:55 GMT
+  recorded_at: Thu, 24 May 2018 05:15:46 GMT
 recorded_with: VCR 3.0.3

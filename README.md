@@ -178,13 +178,13 @@ Returns either:
 Retrieve a list of addresses (with only one address for now) containing a list of balances.
 
 ```ruby
-address = OmiseGO::Balance.all(
+address = OmiseGO::Wallet.all(
   provider_user_id: 'some_uuid'
 )
 ```
 
 Returns either:
-- An `OmiseGO::Address` instance
+- An `OmiseGO::Wallet` instance
 - An `OmiseGO::Error` instance
 
 #### Credit
@@ -192,7 +192,7 @@ Returns either:
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the master wallet to the specified user's wallet. In the following methods, an idempotency token is used to ensure that one specific credit/debit occurs only once. The implementer is responsible for ensuring that those idempotency tokens are unique - sending the same one two times will prevent the second transaction from happening.
 
 ```ruby
-address = OmiseGO::Balance.credit(
+address = OmiseGO::Wallet.credit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
@@ -204,7 +204,7 @@ address = OmiseGO::Balance.credit(
 To use the primary balance of a specific account instead of the master account's as the sending balance, specify an `account_id`:
 
 ```ruby
-address = OmiseGO::Balance.credit(
+address = OmiseGO::Wallet.credit(
   account_id: 'account_uuid',
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
@@ -219,7 +219,7 @@ address = OmiseGO::Balance.credit(
 Transfer the specified amount (as an integer, down to the `subunit_to_unit`) from the specified user's wallet back to the master wallet.
 
 ```ruby
-address = OmiseGO::Balance.debit(
+address = OmiseGO::Wallet.debit(
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
@@ -231,7 +231,7 @@ address = OmiseGO::Balance.debit(
 To use the primary balance of a specific account instead of the master account as the receiving balance, specify an `account_id`:
 
 ```ruby
-address = OmiseGO::Balance.debit(
+address = OmiseGO::Wallet.debit(
   account_id: 'account_uuid',
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
@@ -241,12 +241,12 @@ address = OmiseGO::Balance.debit(
 )
 ```
 
-By default, points won't be burned and will be returned to the account's primary balance (either the master's balance or the account's specified with `account_id`). If you wish to burn points, send them to a burn address. By default, a burn address identified by `'burn'` is created for each account which can be set in the `burn_balance_identifier` field:
+By default, points won't be burned and will be returned to the account's primary balance (either the master's balance or the account's specified with `account_id`). If you wish to burn points, send them to a burn address. By default, a burn address identified by `'burn'` is created for each account which can be set in the `burn_wallet_identifier` field:
 
 ```ruby
-address = OmiseGO::Balance.debit(
+address = OmiseGO::Wallet.debit(
   account_id: 'account_uuid',
-  burn_balance_identifier: 'burn',
+  burn_wallet_identifier: 'burn',
   provider_user_id: 'some_uuid',
   token_id: 'OMG:5e9c0be5-15d1-4463-9ec2-02bc8ded7120',
   amount: 10_000,
@@ -281,7 +281,7 @@ Some parameters can be given to the two following methods to customize the retur
 - `sort_by`: The sorting field. Available values: `id`, `status`, `from`, `to`, `created_at`, `updated_at`
 - `sort_dir`: The sorting direction. Available values: `asc`, `desc`
 - `search_term`: A term to search for in ALL of the searchable fields. Conflict with `search_terms`, only use one of them. See list of searchable fields below (same as `search_terms`).
-- `search_terms`: A hash of fields to search in:  
+- `search_terms`: A hash of fields to search in:
 
 ```ruby
 {
@@ -359,17 +359,17 @@ Since those transactions are already scoped down to the given user, it is NOT PO
 
 Here is the list of all the models available in the SDK with their attributes.
 
-### `OmiseGO::Address`
+### `OmiseGO::Wallet`
 
 Attributes:
 - `address` (string)
-- `balances` (array of OmiseGO::Balance)
+- `balances` (array of OmiseGO::Wallet)
 
-### `OmiseGO::Balance`
+### `OmiseGO::Wallet`
 
 Attributes:
 - `amount` (integer)
-- `minted_token` (OmiseGO::MintedToken)
+- `token` (OmiseGO::Token)
 
 ### `OmiseGO::AuthenticationToken`
 
@@ -390,7 +390,7 @@ Attributes:
 - `data` (array of models)
 - `pagination` (OmiseGO::Pagination)
 
-### `OmiseGO::MintedToken`
+### `OmiseGO::Token`
 
 Attributes:
 - `symbol` (string)
@@ -413,14 +413,14 @@ Attributes:
 
 - `address` (string)
 - `amount` (integer)
-- `minted_token` (`OmiseGO::MintedToken`)
+- `token` (`OmiseGO::Token`)
 
 ### `OmiseGO::Transaction`
 
 - `id` (string)
 - `idempotency_token` (string)
 - `amount` (integer)
-- `minted_token` (`OmiseGO::MintedToken`)
+- `token` (`OmiseGO::Token`)
 - `from` (`OmiseGO::TransactionSource`)
 - `to` (`OmiseGO::TransactionSource`)
 - `exchange` (`OmiseGO::Exchange`)

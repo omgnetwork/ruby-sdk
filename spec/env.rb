@@ -1,10 +1,10 @@
 ENV['ACCESS_KEY'] = 'ACCESS_KEY'
 ENV['SECRET_KEY'] = 'SECRET_KEY'
-ENV['EWALLET_URL'] = 'https://example.com'
+ENV['EWALLET_URL'] = 'https://example.com/api'
 
 ENV['PROVIDER_USER_ID'] = 'provider_user_id01'
-ENV['ACCOUNT_ID'] = 'edbb9557-c37f-4511-b3ff-794fc553b8cf'
-ENV['TOKEN_ID'] = 'OMG:e44b1882-87d4-4498-91d2-a5762593a194'
+ENV['ACCOUNT_ID'] = 'acc_01ce6bqk1748sp9766qz7y0ghz'
+ENV['TOKEN_ID'] = 'tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS'
 
 # Base64 Encoded:
 # OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ

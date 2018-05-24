@@ -1,5 +1,5 @@
 module OmiseGO
-  class Balance < Base
+  class Account < Base
     attributes :amount, :token
 
     def token

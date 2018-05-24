@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'logger'
+require 'securerandom'
 
 module OmiseGO
   RSpec.describe User do
@@ -122,10 +123,10 @@ module OmiseGO
       context 'when valid parameters' do
         it 'creates and retrieves the user' do
           VCR.use_cassette('user/create/valid') do
-            email = 'john2@doe.com'
+            email = 'john4@doe.com'
 
             user = OmiseGO::User.create(
-              provider_user_id: 'userOMGShopAPITest02',
+              provider_user_id: 'userOMGShopAPITest04',
               username: email,
               metadata: {
                 first_name: 'John',
@@ -143,7 +144,7 @@ module OmiseGO
         it 'gets an invalid parameter error' do
           VCR.use_cassette('user/create/invalid') do
             error = OmiseGO::User.create(
-              provider_user_id: 'userOMGShopAPITest02',
+              provider_user_id: 'userOMGShopAPITest04',
               username: 'user01',
               metadata: {
                 first_name: 'John',
@@ -181,10 +182,10 @@ module OmiseGO
       end
 
       context 'with valid parameters' do
-        it 'creates and retrieves the user' do
+        it 'updates the user' do
           VCR.use_cassette('user/update/valid') do
             user = OmiseGO::User.update(
-              provider_user_id: 'userOMGShopAPITest',
+              provider_user_id: ENV['PROVIDER_USER_ID'],
               username: 'jane@doe.com',
               metadata: {
                 first_name: 'Jane',
@@ -203,7 +204,7 @@ module OmiseGO
         it 'returns an invalid parameter error' do
           VCR.use_cassette('user/update/invalid') do
             error = OmiseGO::User.update(
-              provider_user_id: 'userOMGShopAPITest',
+              provider_user_id: ENV['PROVIDER_USER_ID'],
               username: '',
               metadata: {
                 first_name: 'Jane',
@@ -214,8 +215,126 @@ module OmiseGO
 
             expect(error).to be_kind_of OmiseGO::Error
             expect(error.description).to eq(
-              "Invalid parameter provided. `username` can't be blank."
+              "Invalid parameter provided `username` can't be blank."
             )
+          end
+        end
+      end
+    end
+
+    describe '#wallet' do
+      it 'retrieves the list of wallets' do
+        VCR.use_cassette('user/wallets') do
+          expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+
+          user = OmiseGO::User.find(
+            provider_user_id: ENV['PROVIDER_USER_ID'],
+            client: client
+          )
+
+          list = user.wallets(client: client)
+
+          expect(list).to be_kind_of OmiseGO::List
+          expect(list.first).to be_kind_of OmiseGO::Wallet
+          expect(list.first.balances.first).to be_kind_of OmiseGO::Balance
+          expect(list.first.balances.first.token).to be_kind_of OmiseGO::Token
+        end
+      end
+    end
+
+    describe '#credit' do
+      context 'with valid params' do
+        it "credits the user's wallet" do
+          VCR.use_cassette('user/credit/valid') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+
+            user = OmiseGO::User.find(
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              client: client
+            )
+
+            wallets = user.credit(
+              token_id: ENV['TOKEN_ID'],
+              amount: 10_000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(wallets).to be_kind_of OmiseGO::List
+            address = wallets.first
+            expect(address).to be_kind_of OmiseGO::Wallet
+          end
+        end
+      end
+
+      context 'with optional params account_id and burn_wallet_identifier' do
+        it "credits the user's wallet" do
+          VCR.use_cassette('user/credit/valid_optional') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+
+            user = OmiseGO::User.find(
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              client: client
+            )
+
+            wallets = user.credit(
+              account_id: ENV['ACCOUNT_ID'],
+              burn_wallet_identifier: 'burn',
+              token_id: ENV['TOKEN_ID'],
+              amount: 10_000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(wallets).to be_kind_of OmiseGO::List
+          end
+        end
+      end
+    end
+
+    describe '#debit' do
+      context 'with valid params' do
+        it "debits the user's wallet" do
+          VCR.use_cassette('user/debit/valid') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+
+            user = OmiseGO::User.find(
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              client: client
+            )
+
+            wallets = user.debit(
+              token_id: ENV['TOKEN_ID'],
+              amount: 1000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(wallets).to be_kind_of OmiseGO::List
+          end
+        end
+      end
+
+      context 'with optional params account_id and burn_wallet_identifier' do
+        it "debit/s the user's wallet" do
+          VCR.use_cassette('user/debit/valid_optional') do
+            expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+
+            user = OmiseGO::User.find(
+              provider_user_id: ENV['PROVIDER_USER_ID'],
+              client: client
+            )
+
+            wallets = user.debit(
+              account_id: ENV['ACCOUNT_ID'],
+              burn_wallet_identifier: 'burn',
+              token_id: ENV['TOKEN_ID'],
+              amount: 10_000,
+              client: client,
+              idempotency_token: SecureRandom.uuid
+            )
+
+            expect(wallets).to be_kind_of OmiseGO::List
           end
         end
       end

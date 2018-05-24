@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/api/user.get
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"provider_user_id01"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 24 May 2018 05:39:44 GMT
+      Content-Length:
+      - '452'
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2kons5lqsabch7l8l8003q02
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"username":"jane@doe.com","updated_at":"2018-05-24T05:01:25.122824Z","socket_topic":"user:usr_01ce6bqncf4ghv4bceyt6bjcbb","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01ce6bqncf4ghv4bceyt6bjcbb","encrypted_metadata":{},"email":null,"created_at":"2018-05-23T11:21:50.223933Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
+    http_version: 
+  recorded_at: Thu, 24 May 2018 05:39:45 GMT
+- request:
+    method: post
+    uri: https://example.com/api/user.credit_wallet
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"provider_user_id01","token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","amount":10000,"metadata":{},"account_id":null,"burn_wallet_identifier":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Idempotency-Token:
+      - eaf8687e-0e22-418d-967d-9ddc4020e035
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 24 May 2018 05:39:44 GMT
+      Content-Length:
+      - '1068'
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2kons5mfmppt10ap50003q12
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"user_id":"usr_01ce6bqncf4ghv4bceyt6bjcbb","user":{"username":"jane@doe.com","updated_at":"2018-05-24T05:01:25.122824Z","socket_topic":"user:usr_01ce6bqncf4ghv4bceyt6bjcbb","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01ce6bqncf4ghv4bceyt6bjcbb","encrypted_metadata":{},"email":null,"created_at":"2018-05-23T11:21:50.223933Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"socket_topic":"wallet:5adde915-8e4f-4b4f-a564-96cb1cc2a50b","object":"wallet","name":"primary","metadata":{},"identifier":"primary","encrypted_metadata":{},"balances":[{"token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"balance","amount":36000}],"address":"5adde915-8e4f-4b4f-a564-96cb1cc2a50b","account_id":null,"account":null}]}}'
+    http_version: 
+  recorded_at: Thu, 24 May 2018 05:39:45 GMT
+recorded_with: VCR 3.0.3

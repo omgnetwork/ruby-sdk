@@ -27,6 +27,17 @@ module OmiseGO
       end
     end
 
+    def create(from_address:, to_address:, token_id:, amount:, metadata: {}, encrypted_metadata: {})
+      request(client).send('transfer', {
+                             from_address: from_address,
+                             to_address: to_address,
+                             token_id: token_id,
+                             amount: amount,
+                             metadata:  metadata,
+                             encrypted_metadata:  encrypted_metadata
+                           }, params: params).data
+    end
+
     def from
       @_from ||= TransactionSource.new(@from)
     end

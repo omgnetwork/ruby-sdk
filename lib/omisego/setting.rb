@@ -1,6 +1,6 @@
 module OmiseGO
   class Setting < Base
-    attributes :minted_tokens
+    attributes :tokens
 
     class << self
       def all(client: nil)
@@ -8,9 +8,9 @@ module OmiseGO
       end
     end
 
-    def minted_tokens
-      @_minted_tokens ||= @minted_tokens.map do |minted_token|
-        MintedToken.new(minted_token)
+    def tokens
+      @_tokens ||= @tokens.map do |token|
+        Token.new(token)
       end
     end
   end

@@ -17,8 +17,8 @@ module OmiseGO
           settings = OmiseGO::Setting.all(client: client)
 
           expect(settings).to be_kind_of OmiseGO::Setting
-          expect(settings.minted_tokens.first).to be_kind_of OmiseGO::MintedToken
-          expect(settings.minted_tokens.last).to be_kind_of OmiseGO::MintedToken
+          expect(settings.tokens.first).to be_kind_of OmiseGO::Token
+          expect(settings.tokens.last).to be_kind_of OmiseGO::Token
         end
       end
     end
