@@ -267,7 +267,7 @@ module OmiseGO
         end
       end
 
-      context 'with optional params account_id and burn_wallet_identifier' do
+      context 'with params account_id and account_address' do
         it "credits the user's wallet" do
           VCR.use_cassette('user/credit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
@@ -279,7 +279,7 @@ module OmiseGO
 
             wallets = user.credit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_wallet_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
@@ -304,6 +304,7 @@ module OmiseGO
             )
 
             wallets = user.debit(
+              account_id: ENV['ACCOUNT_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 1000,
               client: client,
@@ -315,7 +316,7 @@ module OmiseGO
         end
       end
 
-      context 'with optional params account_id and burn_wallet_identifier' do
+      context 'with params account_id and account_address' do
         it "debit/s the user's wallet" do
           VCR.use_cassette('user/debit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
@@ -327,7 +328,7 @@ module OmiseGO
 
             wallets = user.debit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_wallet_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,

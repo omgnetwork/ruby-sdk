@@ -35,11 +35,12 @@ module OmiseGO
           VCR.use_cassette('wallet/credit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             wallets = OmiseGO::Wallet.credit(
+              account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
-              idempotency_token: SecureRandom.uuid
+              idempotency_token: 'mederirjriejr'
             )
 
             expect(wallets).to be_kind_of OmiseGO::List
@@ -49,13 +50,13 @@ module OmiseGO
         end
       end
 
-      context 'with optional params account_id and burn_wallet_identifier' do
+      context 'with params account_id and account_address' do
         it "credits the user's wallet" do
           VCR.use_cassette('wallet/credit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             wallets = OmiseGO::Wallet.credit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_wallet_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
@@ -75,6 +76,7 @@ module OmiseGO
           VCR.use_cassette('wallet/debit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             wallets = OmiseGO::Wallet.debit(
+              account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 1000,
@@ -87,13 +89,13 @@ module OmiseGO
         end
       end
 
-      context 'with optional params account_id and burn_wallet_identifier' do
+      context 'with params account_id and account_address' do
         it "debit/s the user's wallet" do
           VCR.use_cassette('wallet/debit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
             wallets = OmiseGO::Wallet.debit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_wallet_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,

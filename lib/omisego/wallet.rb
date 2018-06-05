@@ -9,27 +9,33 @@ module OmiseGO
         request(client).send('user.list_wallets', provider_user_id: provider_user_id).data
       end
 
-      def credit(provider_user_id:, token_id:, amount:, metadata: {}, idempotency_token:,
-                 account_id: nil, burn_wallet_identifier: nil, client: nil)
+      def credit(provider_user_id:, token_id:, amount:, metadata: {}, user_address: nil,
+                 encrypted_metadata: {}, idempotency_token:, account_id:, account_address: nil,
+                 client: nil)
         request(client)
           .send('user.credit_wallet', provider_user_id: provider_user_id,
+                                      user_address: user_address,
                                       token_id: token_id,
                                       amount: amount,
                                       metadata: metadata,
+                                      encrypted_metadata: encrypted_metadata,
                                       account_id: account_id,
-                                      burn_wallet_identifier: burn_wallet_identifier,
+                                      account_address: account_address,
                                       idempotency_token: idempotency_token).data
       end
 
-      def debit(provider_user_id:, token_id:, amount:, metadata: {}, idempotency_token:,
-                account_id: nil, burn_wallet_identifier: nil, client: nil)
+      def debit(provider_user_id:, user_address: nil, token_id:, amount:, metadata: {},
+                encrypted_metadata: {}, idempotency_token:, account_id:, account_address: nil,
+                client: nil)
         request(client)
           .send('user.debit_wallet', provider_user_id: provider_user_id,
+                                     user_address: user_address,
                                      token_id: token_id,
                                      amount: amount,
                                      metadata: metadata,
+                                     encrypted_metadata: encrypted_metadata,
                                      account_id: account_id,
-                                     burn_wallet_identifier: burn_wallet_identifier,
+                                     account_address: account_address,
                                      idempotency_token: idempotency_token).data
       end
     end
