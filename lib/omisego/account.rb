@@ -1,9 +1,6 @@
 module OmiseGO
   class Account < Base
-    attributes :amount, :token
-
-    def token
-      @_token ||= Token.new(@token)
-    end
+    attributes :id, :parent_id, :name, :description, :mater, :avatar, :metadata,
+               :encrypted_metadata, :created_at, :updated_at
   end
 end

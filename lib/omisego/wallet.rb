@@ -1,6 +1,6 @@
 module OmiseGO
   class Wallet < Base
-    attributes :address, :balances, :socket_topic, :address, :name, :identifier,
+    attributes :address, :balances, :socket_topic, :name, :identifier,
                :metadata, :encrypted_metadata, :user_id, :user, :account_id,
                :account, :created_at, :updated_at
 
