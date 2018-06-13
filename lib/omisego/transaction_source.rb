@@ -1,5 +1,5 @@
 module OmiseGO
   class TransactionSource < Base
-    attributes :address, :amount, :minted_token
+    attributes :address, :amount, :token
   end
 end

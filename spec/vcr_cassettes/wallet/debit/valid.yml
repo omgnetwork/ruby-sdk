@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.com/api/user.debit_wallet
+    body:
+      encoding: UTF-8
+      string: '{"provider_user_id":"provider_user_id01","user_address":null,"token_id":"tok_OMG_01ccmny8yne44b188287d44498","amount":1000,"metadata":{},"encrypted_metadata":{},"account_id":"acc_01C4T2Y5SFYASXXYANV96MQQC9","account_address":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Idempotency-Token:
+      - '0579c57f-1e47-4248-911a-7b88ff0ff7fd'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.5
+      Date:
+      - Tue, 05 Jun 2018 06:51:01 GMT
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Content-Length:
+      - '4132'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2kqj1s93ckqaq4nr5k00030h
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains;
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"user_id":"usr_01C4T2Y6WKSFECR1N8RT91MN71","user":{"username":"user01","updated_at":"2018-01-26T20:35:57.971209Z","socket_topic":"user:usr_01C4T2Y6WKSFECR1N8RT91MN71","provider_user_id":"provider_user_id01","object":"user","metadata":{},"id":"usr_01C4T2Y6WKSFECR1N8RT91MN71","encrypted_metadata":{},"email":null,"created_at":"2018-01-26T20:35:57.971199Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"updated_at":"2018-01-26T20:35:57.974142Z","socket_topic":"wallet:000d54d4-4db6-462f-aa0b-6f138bb80bf4","object":"wallet","name":"primary","metadata":{},"identifier":"primary","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.974131Z","balances":[{"token":{"updated_at":"2018-05-14T09:28:40.515313Z","symbol":"OTK0","subunit_to_unit":10000,"object":"token","name":"O
+        Token 0","metadata":{"migration_original_id":"tok_OTK0_01CDEZNZRSKGA5NQTJ22B72W2Y"},"id":"tok_OTK0_01ccmny8ynd7a6ed47d24445e2","encrypted_metadata":{},"created_at":"2018-05-14T09:28:40.497876Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-05-23T11:12:25.719384Z","symbol":"TBD","subunit_to_unit":100,"object":"token","name":"ThibaultD","metadata":{},"id":"tok_TBD_01CE6B6E3N2499MGY64M32MW1R","encrypted_metadata":{},"created_at":"2018-05-23T11:12:25.719373Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-05-23T11:12:55.403387Z","symbol":"TBDZ","subunit_to_unit":100,"object":"token","name":"ThibaultDZ","metadata":{},"id":"tok_TBDZ_01CE6B7B3AF97GJF4K4GG93ZNC","encrypted_metadata":{},"created_at":"2018-05-23T11:12:55.403369Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-01-26T20:35:57.423894Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{"migration_original_id":"tok_OMG_01C4T2Y6BFEJC84SF91GJBTGMY"},"id":"tok_OMG_01ccmny8yne44b188287d44498","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.423879Z"},"object":"balance","amount":220000},{"token":{"updated_at":"2018-01-26T20:35:57.451178Z","symbol":"KNC","subunit_to_unit":1000,"object":"token","name":"Kyber","metadata":{"migration_original_id":"tok_KNC_01C4T2Y6CBNZMEHXEDQTNYQM2G"},"id":"tok_KNC_01ccmny8yn2142821ee45e4514","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.451165Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-01-26T20:35:57.457911Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{"migration_original_id":"tok_BTC_01C4T2Y6CHEKVHFWCWFGCFK9YX"},"id":"tok_BTC_01ccmny8yn7942f5f9c08c419f","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.457896Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-01-26T20:35:57.464502Z","symbol":"MNT","subunit_to_unit":100,"object":"token","name":"Mint","metadata":{"migration_original_id":"tok_MNT_01C4T2Y6CRJR724XBFMQD5EC9K"},"id":"tok_MNT_01ccmny8yne8144a1b1fd34714","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.464490Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-01-26T20:35:57.469894Z","symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"token","name":"Ether","metadata":{"migration_original_id":"tok_ETH_01C4T2Y6CX3RAG26A86TA9P2AK"},"id":"tok_ETH_01ccmny8ync42c844bae43426a","encrypted_metadata":{},"created_at":"2018-01-26T20:35:57.469883Z"},"object":"balance","amount":330},{"token":{"updated_at":"2018-02-23T04:24:54.497005Z","symbol":"OEM","subunit_to_unit":100,"object":"token","name":"One
+        EM","metadata":{"migration_original_id":"tok_OEM_01C70EG8Z09XNP78TY6ZYM6TTM"},"id":"tok_OEM_01ccmny8yn8389481c91ad4587","encrypted_metadata":{},"created_at":"2018-02-23T04:24:54.496992Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-02-27T10:41:51.193830Z","symbol":"TBO","subunit_to_unit":100,"object":"token","name":"Tibo
+        Coin","metadata":{"migration_original_id":"tok_TBO_01C7BDNBJS5BWC5H0D03N3CWXC"},"id":"tok_TBO_01ccmny8ynad42866641ab4ed4","encrypted_metadata":{},"created_at":"2018-02-27T10:41:51.193820Z"},"object":"balance","amount":0}],"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4","account_id":null,"account":null}]}}'
+    http_version: 
+  recorded_at: Tue, 05 Jun 2018 06:51:01 GMT
+recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'securerandom'
 
 module OmiseGO
-  RSpec.describe Balance do
+  RSpec.describe Wallet do
     let(:config) do
       OmiseGO::Configuration.new(
         access_key: ENV['ACCESS_KEY'],
@@ -14,48 +14,49 @@ module OmiseGO
     let(:attributes) { { id: '123' } }
 
     describe '.all' do
-      it 'retrieves the list of balances' do
-        VCR.use_cassette('balance/all') do
+      it 'retrieves the list of wallets' do
+        VCR.use_cassette('wallet/all') do
           expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-          list = OmiseGO::Balance.all(
+          list = OmiseGO::Wallet.all(
             provider_user_id: ENV['PROVIDER_USER_ID'],
             client: client
           )
           expect(list).to be_kind_of OmiseGO::List
-          expect(list.first).to be_kind_of OmiseGO::Address
+          expect(list.first).to be_kind_of OmiseGO::Wallet
           expect(list.first.balances.first).to be_kind_of OmiseGO::Balance
-          expect(list.first.balances.first.minted_token).to be_kind_of OmiseGO::MintedToken
+          expect(list.first.balances.first.token).to be_kind_of OmiseGO::Token
         end
       end
     end
 
     describe '.credit' do
       context 'with valid params' do
-        it "credits the user's balance" do
-          VCR.use_cassette('balance/credit/valid') do
+        it "credits the user's wallet" do
+          VCR.use_cassette('wallet/credit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            balances = OmiseGO::Balance.credit(
+            wallets = OmiseGO::Wallet.credit(
+              account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
               client: client,
-              idempotency_token: SecureRandom.uuid
+              idempotency_token: 'mederirjriejr'
             )
 
-            expect(balances).to be_kind_of OmiseGO::List
-            address = balances.first
-            expect(address).to be_kind_of OmiseGO::Address
+            expect(wallets).to be_kind_of OmiseGO::List
+            address = wallets.first
+            expect(address).to be_kind_of OmiseGO::Wallet
           end
         end
       end
 
-      context 'with optional params account_id and burn_balance_identifier' do
-        it "credits the user's balance" do
-          VCR.use_cassette('balance/credit/valid_optional') do
+      context 'with params account_id and account_address' do
+        it "credits the user's wallet" do
+          VCR.use_cassette('wallet/credit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            balances = OmiseGO::Balance.credit(
+            wallets = OmiseGO::Wallet.credit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_balance_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
@@ -63,7 +64,7 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(balances).to be_kind_of OmiseGO::List
+            expect(wallets).to be_kind_of OmiseGO::List
           end
         end
       end
@@ -71,10 +72,11 @@ module OmiseGO
 
     describe '.debit' do
       context 'with valid params' do
-        it "debits the user's balance" do
-          VCR.use_cassette('balance/debit/valid') do
+        it "debits the user's wallet" do
+          VCR.use_cassette('wallet/debit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            balances = OmiseGO::Balance.debit(
+            wallets = OmiseGO::Wallet.debit(
+              account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 1000,
@@ -82,18 +84,18 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(balances).to be_kind_of OmiseGO::List
+            expect(wallets).to be_kind_of OmiseGO::List
           end
         end
       end
 
-      context 'with optional params account_id and burn_balance_identifier' do
-        it "debit/s the user's balance" do
-          VCR.use_cassette('balance/debit/valid_optional') do
+      context 'with params account_id and account_address' do
+        it "debit/s the user's wallet" do
+          VCR.use_cassette('wallet/debit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            balances = OmiseGO::Balance.debit(
+            wallets = OmiseGO::Wallet.debit(
               account_id: ENV['ACCOUNT_ID'],
-              burn_balance_identifier: 'burn',
+              account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
               amount: 10_000,
@@ -101,7 +103,7 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(balances).to be_kind_of OmiseGO::List
+            expect(wallets).to be_kind_of OmiseGO::List
           end
         end
       end

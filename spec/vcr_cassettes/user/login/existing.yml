@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/login
+    uri: https://example.com/api/login
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01"}'
@@ -23,24 +23,20 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.13.5
+      - Cowboy
       Date:
-      - Mon, 05 Mar 2018 07:51:01 GMT
-      Content-Type:
-      - application/vnd.omisego.v1+json; charset=utf-8
+      - Thu, 24 May 2018 05:15:44 GMT
       Content-Length:
       - '140'
-      Connection:
-      - keep-alive
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - tu3v6p6bch4qlb37fnckhtkrld7dn41u
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains;
+      - 2konphra0nvtht30c0003nk1
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"authentication_token","authentication_token":"TC9VmVfjn0pyHIUYb2OD--lE9DVGWifzOjWs_DQCKnk"}}'
+      string: '{"version":"1","success":true,"data":{"object":"authentication_token","authentication_token":"jlJ8QHWP6tPAnxoNfHDvl63_AHkFgJCSM1RpNw1dgs4"}}'
     http_version: 
-  recorded_at: Mon, 05 Mar 2018 07:50:53 GMT
+  recorded_at: Thu, 24 May 2018 05:15:44 GMT
 recorded_with: VCR 3.0.3

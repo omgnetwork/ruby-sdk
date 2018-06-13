@@ -1,6 +1,6 @@
 module OmiseGO
   class User < Base
-    attributes :id, :username, :provider_user_id, :metadata
+    attributes :id, :username, :provider_user_id, :metadata, :encrypted_metadata
 
     class << self
       def login(provider_user_id:, client: nil)
@@ -12,29 +12,36 @@ module OmiseGO
         request(client).send('user.get', provider_user_id: provider_user_id).data
       end
 
-      def create(provider_user_id:, username:, metadata: {}, client: nil)
+      def create(provider_user_id:, username:, metadata: {}, encrypted_metadata: {}, client: nil)
         request(client).send('user.create', provider_user_id: provider_user_id,
                                             username: username,
                                             metadata: metadata).data
       end
 
-      def update(provider_user_id:, username:, metadata: {}, client: nil)
+      def update(provider_user_id:, username:, metadata: {}, encrypted_metadata: {}, client: nil)
         request(client).send('user.update', provider_user_id: provider_user_id,
                                             username: username,
                                             metadata: metadata).data
       end
+
+      def wallets(provider_user_id:, client: nil)
+        request(client).send('user.list_wallets', provider_user_id: provider_user_id).data
+      end
     end
 
-    def login
-      login(provider_user_id)
+    def login(client: nil)
+      self.class.login(provider_user_id, client: client)
     end
 
-    def update(username:, metadata: {}, client: nil)
-      update({
-               provider_user_id: provider_user_id,
-               username: username,
-               metadata: metadata
-             }, client)
+    def update(username:, metadata: {}, encrypted_metadata: {}, client: nil)
+      self.class.update(provider_user_id: provider_user_id,
+                        username: username,
+                        metadata: metadata,
+                        client: client)
+    end
+
+    def wallets(client: nil)
+      self.class.wallets(provider_user_id: provider_user_id, client: client)
     end
   end
 end

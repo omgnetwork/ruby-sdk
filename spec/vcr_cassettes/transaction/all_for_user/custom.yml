@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/user.list_transactions
+    uri: https://example.com/api/user.list_transactions
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01","address":null,"page":2,"per_page":2,"sort_by":"created_at","sort_dir":"desc"}'
@@ -23,24 +23,20 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.13.5
+      - Cowboy
       Date:
-      - Mon, 05 Mar 2018 07:51:00 GMT
+      - Thu, 24 May 2018 05:13:57 GMT
+      Content-Length:
+      - '2365'
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
-      Content-Length:
-      - '1722'
-      Connection:
-      - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - tslfiidupj5ft071rc0gsn7um855focs
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains;
+      - 2konpbjtq1ml00pn40003mu1
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-03-05T07:50:56.787244Z","to":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"32213a14-df1f-429c-ab90-508f42319587","id":"4b18896f-5e37-4249-95e9-6820ecc1acbd","from":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-03-05T07:50:56.757166Z"},{"updated_at":"2018-03-05T07:50:56.161269Z","to":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"000d54d4-4db6-462f-aa0b-6f138bb80bf4"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"aa71bca3-cff9-4469-8ef3-a7e473f75b56","id":"b5547be4-67a0-4939-9d6c-25fb706ca6c9","from":{"object":"transaction_source","minted_token":{"symbol":"OMG","subunit_to_unit":10000,"object":"minted_token","name":"OmiseGO","id":"OMG:e44b1882-87d4-4498-91d2-a5762593a194"},"amount":10000,"address":"b0f8d17e-85be-4261-852b-d7aa6252476d"},"exchange":{"rate":1,"object":"exchange"},"created_at":"2018-03-05T07:50:56.019051Z"}]}}'
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":true,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-05-24T04:48:40.983800Z","to":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"5adde915-8e4f-4b4f-a564-96cb1cc2a50b"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"de17a922-8299-4984-ae4e-4e0b66f377c3","id":"tfr_01ce87mg049he97sa4vanzfeak","from":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"c6f91743-4ac5-474d-92bf-0ece989e7e79"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-05-24T04:48:40.964820Z"},{"updated_at":"2018-05-24T04:46:09.764235Z","to":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"5adde915-8e4f-4b4f-a564-96cb1cc2a50b"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"28f81f3f-0e42-4560-96de-673572656b16","id":"tfr_01ce87fw6cedabt9n8hc26trw3","from":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"c6f91743-4ac5-474d-92bf-0ece989e7e79"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-05-24T04:46:09.616994Z"}]}}'
     http_version: 
-  recorded_at: Mon, 05 Mar 2018 07:50:52 GMT
+  recorded_at: Thu, 24 May 2018 05:13:57 GMT
 recorded_with: VCR 3.0.3
