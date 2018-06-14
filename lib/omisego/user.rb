@@ -12,16 +12,20 @@ module OmiseGO
         request(client).send('user.get', provider_user_id: provider_user_id).data
       end
 
-      def create(provider_user_id:, username:, metadata: {}, encrypted_metadata: {}, client: nil)
+      def create(provider_user_id:, username:, metadata: {},
+                 encrypted_metadata: {}, client: nil)
         request(client).send('user.create', provider_user_id: provider_user_id,
                                             username: username,
-                                            metadata: metadata).data
+                                            metadata: metadata,
+                                            encrypted_metadata: encrypted_metadata).data
       end
 
-      def update(provider_user_id:, username:, metadata: {}, encrypted_metadata: {}, client: nil)
+      def update(provider_user_id:, username:, metadata: {},
+                 encrypted_metadata: {}, client: nil)
         request(client).send('user.update', provider_user_id: provider_user_id,
                                             username: username,
-                                            metadata: metadata).data
+                                            metadata: metadata,
+                                            encrypted_metadata: encrypted_metadata).data
       end
 
       def wallets(provider_user_id:, client: nil)
@@ -37,6 +41,7 @@ module OmiseGO
       self.class.update(provider_user_id: provider_user_id,
                         username: username,
                         metadata: metadata,
+                        encrypted_metadata: encrypted_metadata,
                         client: client)
     end
 
