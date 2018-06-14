@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/api/user.create
+    uri: http://example.com/admin/api/user.create
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"userOMGShopAPITest04","username":"john4@doe.com","metadata":{"first_name":"John","last_name":"Doe"}}'
+      string: '{"provider_user_id":"userOMGShopAPITest06","username":"john6@doe.com","metadata":{"first_name":"John","last_name":"Doe"}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      - OMGProvider QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 24 May 2018 05:19:40 GMT
+      - Thu, 14 Jun 2018 05:17:57 GMT
       Content-Length:
       - '455'
       Content-Type:
@@ -33,10 +33,18 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2konpvk09cdi10sp2g003o81
+      - 2kruu5j1jhj6jgsl0s000581
+      Vary:
+      - Origin
+      Access-Control-Allow-Origin:
+      - 'null'
+      Access-Control-Expose-Headers:
+      - ''
+      Access-Control-Allow-Credentials:
+      - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"username":"john4@doe.com","updated_at":"2018-05-24T05:19:41.450320Z","socket_topic":"user:usr_01ce89d8wad2xz4vp934afztms","provider_user_id":"userOMGShopAPITest04","object":"user","metadata":{"last_name":"Doe","first_name":"John"},"id":"usr_01ce89d8wad2xz4vp934afztms","encrypted_metadata":{},"email":null,"created_at":"2018-05-24T05:19:41.450309Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
-    http_version: 
-  recorded_at: Thu, 24 May 2018 05:19:41 GMT
+      string: '{"version":"1","success":true,"data":{"username":"john6@doe.com","updated_at":"2018-06-14T05:17:58.180553Z","socket_topic":"user:usr_01cfybn7145a36y94r3yt4jgt9","provider_user_id":"userOMGShopAPITest06","object":"user","metadata":{"last_name":"Doe","first_name":"John"},"id":"usr_01cfybn7145a36y94r3yt4jgt9","encrypted_metadata":{},"email":null,"created_at":"2018-06-14T05:17:58.180545Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
+    http_version:
+  recorded_at: Thu, 14 Jun 2018 05:17:58 GMT
 recorded_with: VCR 3.0.3

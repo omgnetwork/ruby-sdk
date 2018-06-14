@@ -72,7 +72,7 @@ module OmiseGO
     end
 
     def new_conn
-      @conn = Faraday.new(url: @config.base_url)
+      @conn = Faraday.new(url: "#{@config.base_url}#{@config.api_prefix}")
     end
   end
 end

@@ -42,7 +42,7 @@ module OmiseGO
           it 'logs the request' do
             VCR.use_cassette('user/login/existing') do
               expect(logger).to receive(:info) do |log_line|
-                expect(log_line).to include("[OmiseGO] Request: POST login\n")
+                expect(log_line).to include("[OmiseGO] Request: POST user.login\n")
               end
               expect(logger).to receive(:info) do |log_line|
                 expect(log_line).to include("[OmiseGO] Response: HTTP/200\n")
@@ -123,10 +123,10 @@ module OmiseGO
       context 'when valid parameters' do
         it 'creates and retrieves the user' do
           VCR.use_cassette('user/create/valid') do
-            email = 'john4@doe.com'
+            email = 'john6@doe.com'
 
             user = OmiseGO::User.create(
-              provider_user_id: 'userOMGShopAPITest04',
+              provider_user_id: 'userOMGShopAPITest06',
               username: email,
               metadata: {
                 first_name: 'John',

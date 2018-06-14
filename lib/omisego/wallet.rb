@@ -6,7 +6,7 @@ module OmiseGO
 
     class << self
       def all(provider_user_id:, client: nil)
-        request(client).send('user.list_wallets', provider_user_id: provider_user_id).data
+        request(client).send('user.get_wallets', provider_user_id: provider_user_id).data
       end
 
       def credit(provider_user_id:, token_id:, amount:, metadata: {}, user_address: nil,
