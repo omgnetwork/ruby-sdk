@@ -1,3 +1,7 @@
+
+[![Build Status](https://travis-ci.org/omisego/ruby-sdk.svg?branch=master)](https://travis-ci.org/omisego/ruby-sdk)
+[![Gem Version](https://badge.fury.io/rb/omisego.svg)](https://badge.fury.io/rb/omisego)
+
 # OmiseGO
 
 OmiseGO is a Ruby SDK meant to communicate with an OmiseGO eWallet setup.
