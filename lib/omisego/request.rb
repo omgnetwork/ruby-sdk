@@ -8,7 +8,6 @@ module OmiseGO
     end
 
     def send(path, body, params: {}, conn: new_conn)
-      idempotency_token = body.delete(:idempotency_token)
       body = add_params(body, params)
 
       response = conn.post do |req|
@@ -16,7 +15,6 @@ module OmiseGO
         req.headers['Authorization'] = authorization
         req.headers['Accept'] = content_type
         req.headers['Content-Type'] = content_type
-        req.headers['Idempotency-Token'] = idempotency_token if idempotency_token
         req.body = body.to_json if body
         logger.log_request(req)
       end

@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 14 Jun 2018 05:17:27 GMT
+      - Fri, 15 Jun 2018 04:47:33 GMT
       Content-Length:
       - '452'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2kruu3rpknfs2ntl940004q1
+      - 2ks3o0i21p360n9df80020i1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -46,5 +46,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"version":"1","success":true,"data":{"username":"jane@doe.com","updated_at":"2018-06-14T04:37:51.729190Z","socket_topic":"user:usr_01cfy9377swjpf3t9t5bxbbbqn","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01cfy9377swjpf3t9t5bxbbbqn","encrypted_metadata":{},"email":null,"created_at":"2018-06-14T04:33:11.417604Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
     http_version: 
-  recorded_at: Thu, 14 Jun 2018 05:17:28 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:34 GMT
 recorded_with: VCR 3.0.3

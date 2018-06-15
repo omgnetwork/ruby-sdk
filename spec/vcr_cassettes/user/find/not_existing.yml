@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 14 Jun 2018 05:17:28 GMT
+      - Fri, 15 Jun 2018 04:47:34 GMT
       Content-Length:
       - '194'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2kruu3sg6nnq2725is0004r1
+      - 2ks3o0iq4u381d99g00020j1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -47,5 +47,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Thu, 14 Jun 2018 05:17:28 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:34 GMT
 recorded_with: VCR 3.0.3

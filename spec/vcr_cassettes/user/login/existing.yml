@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 14 Jun 2018 05:17:26 GMT
+      - Fri, 15 Jun 2018 04:47:32 GMT
       Content-Length:
       - '140'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2kruu3qb4t0n3f2okk0004o1
+      - 2ks3o0ggua1khdo8og0020g1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,7 +44,7 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"authentication_token","authentication_token":"xZfQ_gd0x3y-2_00J-FZoGeLtRnm9vNDNqRGS7KEJNU"}}'
+      string: '{"version":"1","success":true,"data":{"object":"authentication_token","authentication_token":"z_0Qr9cPKK8vwBba_y5joRdIp_4QVIJ0IuqaJ-4vurM"}}'
     http_version: 
-  recorded_at: Thu, 14 Jun 2018 05:17:27 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:33 GMT
 recorded_with: VCR 3.0.3

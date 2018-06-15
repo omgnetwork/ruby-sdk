@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 14 Jun 2018 05:17:26 GMT
+      - Fri, 15 Jun 2018 04:47:32 GMT
       Content-Length:
       - '2366'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2kruu3pit2jd23l3i00004n1
+      - 2ks3o0fnppp7g9j4m00020f1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,7 +44,7 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-06-14T05:13:28.100468Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"9c94b76a-6daf-4d36-8c52-193f24346ca1","id":"tfr_01cfybcz8merfj2wf0jj95nphn","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:13:28.084749Z"},{"updated_at":"2018-06-14T05:10:10.007240Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"f5e4b5f0-64e1-478b-836b-437ec893e4fd","id":"tfr_01cfyb6xsxs51xhev6xcvvh5ax","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:10:09.981705Z"}]}}'
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-06-14T05:17:32.926851Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"3cd812af-3da5-4a06-a9ff-3b4221366cc9","id":"tfr_01cfybmebfmrrz3c6awxzqmnx5","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:17:32.911457Z"},{"updated_at":"2018-06-14T05:13:28.904656Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"1c4e3040-c7be-4933-bc97-d3b1dcec52a3","id":"tfr_01cfybd01mgtmxg648146t9x0j","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:13:28.885003Z"}]}}'
     http_version: 
-  recorded_at: Thu, 14 Jun 2018 05:17:27 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:32 GMT
 recorded_with: VCR 3.0.3

@@ -5,7 +5,7 @@ http_interactions:
     uri: http://example.com/admin/api/user.create
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"userOMGShopAPITest06","username":"john6@doe.com","metadata":{"first_name":"John","last_name":"Doe"}}'
+      string: '{"provider_user_id":"userOMGShopAPITest07","username":"john7@doe.com","metadata":{"first_name":"John","last_name":"Doe"},"encrypted_metadata":{}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 14 Jun 2018 05:17:57 GMT
+      - Fri, 15 Jun 2018 04:51:45 GMT
       Content-Length:
       - '455'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2kruu5j1jhj6jgsl0s000581
+      - 2ks3of8339i80t7nmk0022h1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,7 +44,7 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"username":"john6@doe.com","updated_at":"2018-06-14T05:17:58.180553Z","socket_topic":"user:usr_01cfybn7145a36y94r3yt4jgt9","provider_user_id":"userOMGShopAPITest06","object":"user","metadata":{"last_name":"Doe","first_name":"John"},"id":"usr_01cfybn7145a36y94r3yt4jgt9","encrypted_metadata":{},"email":null,"created_at":"2018-06-14T05:17:58.180545Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
-    http_version:
-  recorded_at: Thu, 14 Jun 2018 05:17:58 GMT
+      string: '{"version":"1","success":true,"data":{"username":"john7@doe.com","updated_at":"2018-06-15T04:51:46.500235Z","socket_topic":"user:usr_01cg0whz64a5b652wdt14fqrw8","provider_user_id":"userOMGShopAPITest07","object":"user","metadata":{"last_name":"Doe","first_name":"John"},"id":"usr_01cg0whz64a5b652wdt14fqrw8","encrypted_metadata":{},"email":null,"created_at":"2018-06-15T04:51:46.500227Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jun 2018 04:51:46 GMT
 recorded_with: VCR 3.0.3
