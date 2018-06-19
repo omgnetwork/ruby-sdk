@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/user.get
+    uri: http://example.com/api/admin/user.get
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01"}'
@@ -49,7 +49,7 @@ http_interactions:
   recorded_at: Fri, 15 Jun 2018 04:47:37 GMT
 - request:
     method: post
-    uri: http://example.com/admin/api/user.get_wallets
+    uri: http://example.com/api/admin/user.get_wallets
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01"}'

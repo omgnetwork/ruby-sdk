@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/user.debit_wallet
+    uri: http://example.com/api/admin/user.debit_wallet
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01","user_address":null,"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","amount":10000,"metadata":{},"encrypted_metadata":{},"account_id":"acc_01cfy9350215sgwxs11tqnqw9t","account_address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5","idempotency_token":"73324fbf-8c7d-4193-bd52-d68cf92695ae"}'

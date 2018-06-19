@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/user.create
+    uri: http://example.com/api/admin/user.create
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"userOMGShopAPITest07","username":"john7@doe.com","metadata":{"first_name":"John","last_name":"Doe"},"encrypted_metadata":{}}'

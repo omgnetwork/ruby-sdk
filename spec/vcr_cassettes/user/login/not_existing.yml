@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/user.login
+    uri: http://example.com/api/admin/user.login
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"123"}'

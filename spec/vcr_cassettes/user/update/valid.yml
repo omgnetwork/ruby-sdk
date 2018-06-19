@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/user.update
+    uri: http://example.com/api/admin/user.update
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01","username":"jane@doe.com","metadata":{"first_name":"Jane","last_name":"Doe"},"encrypted_metadata":{}}'

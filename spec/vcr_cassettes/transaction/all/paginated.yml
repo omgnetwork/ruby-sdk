@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/admin/api/transaction.all
+    uri: http://example.com/api/admin/transaction.all
     body:
       encoding: UTF-8
       string: "{}"
