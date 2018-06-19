@@ -4,7 +4,7 @@ module OmiseGO
 
     class << self
       def login(provider_user_id:, client: nil)
-        request(client).send('login', provider_user_id: provider_user_id).data
+        request(client).send('user.login', provider_user_id: provider_user_id).data
       end
 
       def find(provider_user_id:, client: nil)
@@ -29,7 +29,7 @@ module OmiseGO
       end
 
       def wallets(provider_user_id:, client: nil)
-        request(client).send('user.list_wallets', provider_user_id: provider_user_id).data
+        request(client).send('user.get_wallets', provider_user_id: provider_user_id).data
       end
     end
 

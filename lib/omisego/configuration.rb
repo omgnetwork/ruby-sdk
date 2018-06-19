@@ -9,7 +9,8 @@ module OmiseGO
 
     OMISEGO_OPTIONS = {
       api_version: '1',
-      auth_scheme: 'OMGServer',
+      auth_scheme: 'OMGProvider',
+      api_prefix: '/admin/api',
       models: {
         user: OmiseGO::User,
         error: OmiseGO::Error,

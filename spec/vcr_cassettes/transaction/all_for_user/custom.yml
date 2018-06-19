@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/api/user.list_transactions
+    uri: http://example.com/admin/api/user.get_transactions
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01","address":null,"page":2,"per_page":2,"sort_by":"created_at","sort_dir":"desc"}'
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      - OMGProvider QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,18 +25,26 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 24 May 2018 05:13:57 GMT
+      - Fri, 15 Jun 2018 04:47:32 GMT
       Content-Length:
-      - '2365'
+      - '2366'
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2konpbjtq1ml00pn40003mu1
+      - 2ks3o0fnppp7g9j4m00020f1
+      Vary:
+      - Origin
+      Access-Control-Allow-Origin:
+      - 'null'
+      Access-Control-Expose-Headers:
+      - ''
+      Access-Control-Allow-Credentials:
+      - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":true,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-05-24T04:48:40.983800Z","to":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"5adde915-8e4f-4b4f-a564-96cb1cc2a50b"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"de17a922-8299-4984-ae4e-4e0b66f377c3","id":"tfr_01ce87mg049he97sa4vanzfeak","from":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"c6f91743-4ac5-474d-92bf-0ece989e7e79"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-05-24T04:48:40.964820Z"},{"updated_at":"2018-05-24T04:46:09.764235Z","to":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"5adde915-8e4f-4b4f-a564-96cb1cc2a50b"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"28f81f3f-0e42-4560-96de-673572656b16","id":"tfr_01ce87fw6cedabt9n8hc26trw3","from":{"token_id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","token":{"updated_at":"2018-05-23T11:21:49.955588Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CE6BQN433JCYN8C1GFT9YXRS","encrypted_metadata":{},"created_at":"2018-05-23T11:21:49.955566Z"},"object":"transaction_source","amount":10000,"address":"c6f91743-4ac5-474d-92bf-0ece989e7e79"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-05-24T04:46:09.616994Z"}]}}'
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-06-14T05:17:32.926851Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"3cd812af-3da5-4a06-a9ff-3b4221366cc9","id":"tfr_01cfybmebfmrrz3c6awxzqmnx5","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:17:32.911457Z"},{"updated_at":"2018-06-14T05:13:28.904656Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"1c4e3040-c7be-4933-bc97-d3b1dcec52a3","id":"tfr_01cfybd01mgtmxg648146t9x0j","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10000,"address":"671f368d-d53b-4a35-8b20-5a5a38346776"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T05:13:28.885003Z"}]}}'
     http_version: 
-  recorded_at: Thu, 24 May 2018 05:13:57 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:32 GMT
 recorded_with: VCR 3.0.3

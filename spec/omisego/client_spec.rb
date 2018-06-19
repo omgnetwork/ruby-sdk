@@ -12,7 +12,7 @@ module OmiseGO
           expect(config.secret_key).to eq('secret_key')
           expect(config.api_version).to eq('1')
           expect(config.base_url).to eq(ENV['EWALLET_URL'])
-          expect(config.auth_scheme).to eq('OMGServer')
+          expect(config.auth_scheme).to eq('OMGProvider')
         end
       end
 
@@ -23,7 +23,7 @@ module OmiseGO
           expect(config.secret_key).to eq(nil)
           expect(config.base_url).to eq(nil)
           expect(config.api_version).to eq('1')
-          expect(config.auth_scheme).to eq('OMGServer')
+          expect(config.auth_scheme).to eq('OMGProvider')
         end
       end
     end

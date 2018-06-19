@@ -23,7 +23,7 @@ module OmiseGO
           address:          address
         }
 
-        request(client).send('user.list_transactions', body, params: params).data
+        request(client).send('user.get_transactions', body, params: params).data
       end
     end
 

@@ -4,7 +4,7 @@ module OmiseGO
 
     class << self
       def all(client: nil)
-        request(client).send('get_settings', {}).data
+        request(client).send('settings.all', {}).data
       end
     end
 

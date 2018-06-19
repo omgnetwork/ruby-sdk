@@ -2,15 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: https://example.com/api/user.update
+    uri: http://example.com/admin/api/user.update
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"provider_user_id01","username":"","metadata":{"first_name":"Jane","last_name":"Doe"}}'
+      string: '{"provider_user_id":"provider_user_id01","username":"","metadata":{"first_name":"Jane","last_name":"Doe"},"encrypted_metadata":{}}'
     headers:
       User-Agent:
       - Faraday v0.13.1
       Authorization:
-      - OMGServer QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      - OMGProvider QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
       Accept:
       - application/vnd.omisego.v1+json
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 24 May 2018 05:15:47 GMT
+      - Fri, 15 Jun 2018 04:47:36 GMT
       Content-Length:
       - '198'
       Content-Type:
@@ -33,11 +33,19 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2konpi219b5mg33nk8003o01
+      - 2ks3o0mp4v3jgob3qk0020q1
+      Vary:
+      - Origin
+      Access-Control-Allow-Origin:
+      - 'null'
+      Access-Control-Expose-Headers:
+      - ''
+      Access-Control-Allow-Credentials:
+      - 'true'
     body:
       encoding: UTF-8
       string: '{"version":"1","success":false,"data":{"object":"error","messages":{"username":["required"]},"description":"Invalid
         parameter provided `username` can''t be blank.","code":"client:invalid_parameter"}}'
     http_version: 
-  recorded_at: Thu, 24 May 2018 05:15:48 GMT
+  recorded_at: Fri, 15 Jun 2018 04:47:36 GMT
 recorded_with: VCR 3.0.3
