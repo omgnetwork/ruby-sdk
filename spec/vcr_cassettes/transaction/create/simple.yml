@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4000/api/admin/transaction.create
+    body:
+      encoding: UTF-8
+      string: '{"from_account_id":"acc_01chckv67se4eddn11nyz7y3ma","from_provider_user_id":null,"from_address":null,"to_account_id":null,"to_provider_user_id":"provider_user_id01","to_address":null,"from_token_id":null,"to_token_id":null,"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","from_amount":null,"to_amount":null,"amount":1,"exchange_account_id":null,"exchange_wallet_address":null,"metadata":{},"encrypted_metadata":{},"idempotency_token":"871e94ff-1aab-44f1-a302-2b10e0f1d342"}'
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - OMGProvider QUNDRVNTX0tFWTpTRUNSRVRfS0VZ
+      Accept:
+      - application/vnd.omisego.v1+json
+      Content-Type:
+      - application/vnd.omisego.v1+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 02 Jul 2018 07:25:33 GMT
+      Content-Length:
+      - '2158'
+      Content-Type:
+      - application/vnd.omisego.v1+json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2kunovoi540l9qr54s000744
+      Vary:
+      - Origin
+      Access-Control-Allow-Origin:
+      - 'null'
+      Access-Control-Expose-Headers:
+      - ''
+      Access-Control-Allow-Credentials:
+      - 'true'
+    body:
+      encoding: UTF-8
+      string: '{"version":"1","success":true,"data":{"updated_at":"2018-07-02T07:25:33.996979Z","to":{"user_id":"usr_01chckv8jcsg09nzqh28ev0npd","user":{"username":"jane@doe.com","updated_at":"2018-07-02T04:30:16.612591Z","socket_topic":"user:usr_01chckv8jcsg09nzqh28ev0npd","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01chckv8jcsg09nzqh28ev0npd","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:26:08.844421Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1,"address":"xkdz641731743701","account_id":null,"account":null},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"871e94ff-1aab-44f1-a302-2b10e0f1d342","id":"txn_01chcy3sa9pajwpc86rbe92vrm","from":{"user_id":null,"user":{"username":"jane@doe.com","updated_at":"2018-07-02T04:30:16.612591Z","socket_topic":"user:usr_01chckv8jcsg09nzqh28ev0npd","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01chckv8jcsg09nzqh28ev0npd","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:26:08.844421Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1,"address":"omri489161761367","account_id":"acc_01chckv67se4eddn11nyz7y3ma","account":null},"exchange":{"rate":1,"object":"exchange","exchange_pair_id":null,"exchange_pair":null,"calculated_at":null},"encrypted_metadata":{},"created_at":"2018-07-02T07:25:33.904907Z"}}'
+    http_version: 
+  recorded_at: Mon, 02 Jul 2018 07:25:34 GMT
+recorded_with: VCR 3.0.3

@@ -1,7 +1,14 @@
 module OmiseGO
   class Transaction < Base
-    attributes :id, :idempotency_token, :from, :to, :exchange,
-               :metadata, :encrypted_metadata, :status, :created_at
+    attributes :id,
+               :idempotency_token,
+               :from,
+               :to,
+               :exchange,
+               :metadata,
+               :encrypted_metadata,
+               :status,
+               :created_at
 
     class << self
       def all(params: {}, client: nil)
@@ -25,17 +32,43 @@ module OmiseGO
 
         request(client).send('user.get_transactions', body, params: params).data
       end
-    end
 
-    def create(from_address:, to_address:, token_id:, amount:, metadata: {}, encrypted_metadata: {})
-      request(client).send('transfer', {
-                             from_address: from_address,
-                             to_address: to_address,
-                             token_id: token_id,
-                             amount: amount,
-                             metadata:  metadata,
-                             encrypted_metadata:  encrypted_metadata
-                           }, params: params).data
+      def create(from_account_id: nil,
+                 from_provider_user_id: nil,
+                 from_address: nil,
+                 to_account_id: nil,
+                 to_provider_user_id: nil,
+                 to_address: nil,
+                 from_token_id: nil,
+                 to_token_id: nil,
+                 token_id: nil,
+                 from_amount: nil,
+                 to_amount: nil,
+                 amount: nil,
+                 exchange_account_id: nil,
+                 exchange_wallet_address: nil,
+                 metadata: {},
+                 encrypted_metadata: {},
+                 idempotency_token:,
+                 client: nil)
+        request(client).send('transaction.create', from_account_id: from_account_id,
+                                                   from_provider_user_id: from_provider_user_id,
+                                                   from_address: from_address,
+                                                   to_account_id: to_account_id,
+                                                   to_provider_user_id: to_provider_user_id,
+                                                   to_address: to_address,
+                                                   from_token_id: from_token_id,
+                                                   to_token_id: to_token_id,
+                                                   token_id: token_id,
+                                                   from_amount: from_amount,
+                                                   to_amount: to_amount,
+                                                   amount: amount,
+                                                   exchange_account_id: exchange_account_id,
+                                                   exchange_wallet_address: exchange_wallet_address,
+                                                   metadata: metadata,
+                                                   encrypted_metadata: encrypted_metadata,
+                                                   idempotency_token: idempotency_token).data
+      end
     end
 
     def from

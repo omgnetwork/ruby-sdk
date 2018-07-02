@@ -1,11 +1,11 @@
 ENV['ACCESS_KEY'] = 'ACCESS_KEY'
 ENV['SECRET_KEY'] = 'SECRET_KEY'
-ENV['EWALLET_URL'] = 'http://example.com'
+ENV['EWALLET_URL'] = 'http://localhost:4000'
 
 ENV['PROVIDER_USER_ID'] = 'provider_user_id01'
-ENV['ACCOUNT_ID'] = 'acc_01cfy9350215sgwxs11tqnqw9t'
-ENV['ACCOUNT_ADDRESS'] = 'b8f634be-4de9-4740-9f12-5ea3c98b71a5'
-ENV['TOKEN_ID'] = 'tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X'
+ENV['ACCOUNT_ID'] = 'acc_01chckv67se4eddn11nyz7y3ma'
+ENV['ACCOUNT_ADDRESS'] = 'omri489161761367'
+ENV['TOKEN_ID'] = 'tok_OMG_01chckv89051fsnf1bydkgc6ah'
 
 # Base64 Encoded:
 # OMGProvider QUNDRVNTX0tFWTpTRUNSRVRfS0VZ

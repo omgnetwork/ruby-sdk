@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/user.login
+    uri: http://localhost:4000/api/admin/user.login
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"123"}'
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:33 GMT
+      - Mon, 02 Jul 2018 06:25:50 GMT
       Content-Length:
       - '194'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0h9m1jth7sf6o0020h1
+      - 2kunif675kc5cpe03k000841
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -47,5 +47,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":null,"description":"There
         is no user corresponding to the provided provider_user_id","code":"user:provider_user_id_not_found"}}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:33 GMT
+  recorded_at: Mon, 02 Jul 2018 06:25:50 GMT
 recorded_with: VCR 3.0.3

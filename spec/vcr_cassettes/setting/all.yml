@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/settings.all
+    uri: http://localhost:4000/api/admin/settings.all
     body:
       encoding: UTF-8
       string: "{}"
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:30 GMT
+      - Mon, 02 Jul 2018 06:25:47 GMT
       Content-Length:
       - '1280'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0ckl3p6h3c4tg002061
+      - 2kunif1i7kf9st2hcg0007t1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,8 +44,8 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"tokens":[{"updated_at":"2018-06-14T04:33:11.185043Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CFY9370GMJ8WTRCC7FQJ14JQ","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.185028Z"},{"updated_at":"2018-06-14T04:33:11.287346Z","symbol":"KNC","subunit_to_unit":1000,"object":"token","name":"Kyber","metadata":{},"id":"tok_KNC_01CFY9373QG3QXV7PDR04XDJHK","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.287332Z"},{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},{"updated_at":"2018-06-14T04:33:11.354960Z","symbol":"OEM","subunit_to_unit":100,"object":"token","name":"One
-        EM","metadata":{},"id":"tok_OEM_01CFY9375TE36ECAZC6Q636Y6S","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.354942Z"},{"updated_at":"2018-06-14T04:33:11.384876Z","symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"token","name":"Ether","metadata":{},"id":"tok_ETH_01CFY9376R0674T5TM25E2P6H0","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.384859Z"}],"object":"setting"}}'
+      string: '{"version":"1","success":true,"data":{"tokens":[{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},{"updated_at":"2018-07-02T04:26:08.664801Z","symbol":"KNC","subunit_to_unit":1000,"object":"token","name":"Kyber","metadata":{},"id":"tok_KNC_01chckv8crjf52r7rq9whezr04","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.664782Z"},{"updated_at":"2018-07-02T04:26:08.721534Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01chckv8eh2nq1zwkyfkh2pe40","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.721521Z"},{"updated_at":"2018-07-02T04:26:08.773391Z","symbol":"OEM","subunit_to_unit":100,"object":"token","name":"One
+        EM","metadata":{},"id":"tok_OEM_01chckv8g5rdqe45gmw0v5r9xx","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.773377Z"},{"updated_at":"2018-07-02T04:26:08.807452Z","symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"token","name":"Ether","metadata":{},"id":"tok_ETH_01chckv8h6v355xgh629w4r27c","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.807402Z"}],"object":"setting"}}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:31 GMT
+  recorded_at: Mon, 02 Jul 2018 06:25:48 GMT
 recorded_with: VCR 3.0.3

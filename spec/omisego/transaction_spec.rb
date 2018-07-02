@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'securerandom'
 
 module OmiseGO
   RSpec.describe Transaction do
@@ -114,6 +115,39 @@ module OmiseGO
           expect(transactions.data.first).to be_kind_of OmiseGO::Transaction
           expect(transactions.data.count).to eq 2
           expect(transactions.data.first.created_at).to be > transactions.data.last.created_at
+        end
+      end
+    end
+
+    describe '/create' do
+      it 'creates a simple transaction' do
+        VCR.use_cassette('transaction/create/simple') do
+          transaction = OmiseGO::Transaction.create(
+            from_account_id: ENV['ACCOUNT_ID'],
+            to_provider_user_id: ENV['PROVIDER_USER_ID'],
+            amount: 1,
+            token_id: ENV['TOKEN_ID'],
+            idempotency_token: SecureRandom.uuid,
+            client: client
+          )
+
+          expect(transaction).to be_kind_of OmiseGO::Transaction
+        end
+      end
+
+      it 'creates an exchange transaction' do
+        VCR.use_cassette('transaction/create/simple') do
+          transaction = OmiseGO::Transaction.create(
+            from_account_id: ENV['ACCOUNT_ID'],
+            to_provider_user_id: ENV['PROVIDER_USER_ID'],
+            from_amount: 1,
+            from_token_id: ENV['TOKEN_ID'],
+            to_token_id: ENV['TOKEN_ID'],
+            idempotency_token: SecureRandom.uuid,
+            client: client
+          )
+
+          expect(transaction).to be_kind_of OmiseGO::Transaction
         end
       end
     end

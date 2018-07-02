@@ -9,34 +9,40 @@ module OmiseGO
         request(client).send('user.get_wallets', provider_user_id: provider_user_id).data
       end
 
+      def all_for_account(account_id:, client: nil)
+        request(client).send('account.get_wallets', id: account_id).data
+      end
+
       def credit(provider_user_id:, token_id:, amount:, metadata: {}, user_address: nil,
                  encrypted_metadata: {}, idempotency_token:, account_id:, account_address: nil,
                  client: nil)
-        request(client)
-          .send('user.credit_wallet', provider_user_id: provider_user_id,
-                                      user_address: user_address,
-                                      token_id: token_id,
-                                      amount: amount,
-                                      metadata: metadata,
-                                      encrypted_metadata: encrypted_metadata,
-                                      account_id: account_id,
-                                      account_address: account_address,
-                                      idempotency_token: idempotency_token).data
+        params = { to_provider_user_id: provider_user_id,
+                   to_address: user_address,
+                   from_account_id: account_id,
+                   from_address: account_address,
+                   token_id: token_id,
+                   amount: amount,
+                   metadata: metadata,
+                   encrypted_metadata: encrypted_metadata,
+                   account_address: account_address,
+                   idempotency_token: idempotency_token }
+        request(client).send('transaction.create', params).data
       end
 
       def debit(provider_user_id:, user_address: nil, token_id:, amount:, metadata: {},
                 encrypted_metadata: {}, idempotency_token:, account_id:, account_address: nil,
                 client: nil)
-        request(client)
-          .send('user.debit_wallet', provider_user_id: provider_user_id,
-                                     user_address: user_address,
-                                     token_id: token_id,
-                                     amount: amount,
-                                     metadata: metadata,
-                                     encrypted_metadata: encrypted_metadata,
-                                     account_id: account_id,
-                                     account_address: account_address,
-                                     idempotency_token: idempotency_token).data
+        params = { from_provider_user_id: provider_user_id,
+                   from_address: user_address,
+                   to_account_id: account_id,
+                   to_address: account_address,
+                   token_id: token_id,
+                   amount: amount,
+                   metadata: metadata,
+                   encrypted_metadata: encrypted_metadata,
+                   account_address: account_address,
+                   idempotency_token: idempotency_token }
+        request(client).send('transaction.create', params).data
       end
     end
 
