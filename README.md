@@ -135,7 +135,7 @@ Not all wallets are created equals. We have 3 different types of wallets:
 
 ### Understanding Metadata and Encrypted Metadata
 
-`metadata` and `encrypted_metadata` are fields you can use to store any kind of data. Formatted as dictionnaries (json/map/hash), they stored in the database with the referenced record. `encrypted_metadata` will be encrypted and not readable directly from a dump of the DB without the key, while `metadata` are stored in clear (and will potentially be searchable later).
+`metadata` and `encrypted_metadata` are fields you can use to store any kind of data. Formatted as dictionnaries (json/map/hash), they are stored in the database with the referenced record. `encrypted_metadata` will be encrypted and not readable directly from a dump of the DB without the key, while `metadata` are stored in clear (and will potentially be searchable later).
 
 ### All available methods
 
