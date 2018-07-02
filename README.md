@@ -6,7 +6,7 @@
 
 OmiseGO is a Ruby SDK meant to communicate with an OmiseGO eWallet setup.
 
-For more details about the web API being wrapped by this SDK, take a look at the [OpenAPI Specification](https://ewallet.demo.omisego.io/api/docs.ui). You are free to use that web API directly if you prefer, this SDK is only provided as a convenient way to make those HTTP calls and return Ruby objects as responses.
+For more details about the web API being wrapped by this SDK, take a look at the [OpenAPI Specification](https://ewallet.demo.omisego.io/api/admin/docs.ui). You are free to use that web API directly if you prefer, this SDK is only provided as a convenient way to make those HTTP calls and return Ruby objects as responses.
 
 ## Installation
 
@@ -104,14 +104,38 @@ All the calls below will communicate with the OmiseGO wallet specified in the `b
 __The method `#error?` can be used on any model to check if it's an error or a valid result.__
 
 
+### Using the API directly
+
+Almost all the calls presented in the [API documentation](https://ewallet.demo.omisego.io/api/admin/docs.ui) can be accessed from this Ruby SDK as a provider. A lof ot the endpoints are, however, not fully supported yet. If you wish to use an endpoint not supported by the SDK, you can do the following:
+
+```ruby
+client = Client.new # Will use global configuration
+
+response = client.request.send({
+  "account.get_wallets",
+  {
+    id: "acc_123"
+  }, # body
+})
+```
+
+`response` will contain the full payload returned from the server, where the `data` field contains the actual response data.
+
 ### Understanding Idempotency
 
 Some of the calls in the web API (and in the methods below) contain a parameter called `idempotency_token`.
 
 ### Understanding wallet types
 
+Not all wallets are created equals. We have 3 different types of wallets:
+
+- `primary`: Only one primary wallet per account or user is allowed. This is the default used if you don't want to deal with wallets.
+- `secondary`: An additional wallet that can be created if you need to keep separate balances.
+- `burn`: A special type of wallets where value goes and never comes back. If you want to get rid of tokens (remove them from circulation), send them to a `burn` wallet. Accounts get one created by default, and more can be created if needed.
+
 ### Understanding Metadata and Encrypted Metadata
 
+`metadata` and `encrypted_metadata` are fields you can use to store any kind of data. Formatted as dictionnaries (json/map/hash), they stored in the database with the referenced record. `encrypted_metadata` will be encrypted and not readable directly from a dump of the DB without the key, while `metadata` are stored in clear (and will potentially be searchable later).
 
 ### All available methods
 
@@ -316,7 +340,7 @@ Returns either:
 - An `OmiseGO::List` of `OmiseGO::Wallet` instances (containing the 2 wallets involved in the transaction)
 - An `OmiseGO::Error` instance
 
-### Listing transactions
+### Managing transactions
 
 #### Params
 
@@ -410,6 +434,76 @@ transaction = OmiseGO::Transaction.all(
 ```
 
 Since those transactions are already scoped down to the given user, it is NOT POSSIBLE to specify both `from` AND `to` in the `search_terms`. Doing so will result in the API ignoring both of those fields for the search.
+
+#### Creating transactions
+
+Transactions can be created with the `OmiseGO::Transaction.create()` method (which will call the `/transaction.create` endpoint).
+
+Two types of transactions can be made, depending if you intend to exchange tokens or if it's a simple transfer between two addresses.
+
+##### Defining the sender and receiver
+
+There are different ways to define who is supposed to send/receive the tokens. The server expects at least one of these sets of parameters to find the sender:
+
+- `from_provider_user_id`: Will find the user and takes his primary address as the sending address.
+- `from_provider_user_id` + `from_address`: Will find the user and ensures the given `from_address` belongs to him.
+- `from_account_id`: Will find the account and takes its primary address as the sending address.
+- `from_account_id` + `from_address`: Will find the account and ensures the given `from_address` belongs to that account.
+- `from_address`: Will simply set the sending address (and get the owner of that address for reference).
+
+The parameters are the same for the other side, simply swap `from` with `to`.
+
+- `to_provider_user_id`
+- `to_provider_user_id` + `to_address`
+- `to_account_id`
+- `to_account_id` + `to_address`
+- `to_address`
+
+##### Simple Transfer
+
+In addition to the previous parameters, a simple transfer requires to pass:
+
+- `token_id`
+- `amount`
+
+```
+transaction = OmiseGO::Transaction.create({
+  from_address: "abcd111111111111",
+  to_address: "abcd111111111112",
+  token_id: "tok_OMG_01ccmny8yne44b188287d44498",
+  amount: 100
+})
+```
+
+Returns either:
+- An `OmiseGO::Transaction` instance
+- An `OmiseGO::Error` instance
+
+##### Exchange Transfer
+
+Exchange transfers are a bit more complicated. In addition to defining the sender/receiver, you will also need to give it a `from_token_id`/`to_token_id` pair, a `from_amount` OR a `to_amount` and either an `exchange_account_id` OR an `exchange_wallet_address`.
+
+- `from_token_id`: The ID of the sending token.
+- `to_token_id`: The ID of the receive token.
+- `from_amount`: The amount of tokens (`from_token_id`) to send
+- `to_amount`: The amount of tokens (`to_token_id`) to receive
+- `exchange_account_id`: The ID of the account that will be used as an intermediary to exchange funds. The primary wallet of that account needs to have funds in the token identified by `to_token_id`, unless `exchange_wallet_address` is specified.
+- `exchange_wallet_address`: The ID of the wallet that will be used as an intermediary to exchange funds. That wallet needs to have funds in the token identified by `to_token_id`.
+
+```
+OmiseGO::Transaction.create({
+  from_address: "abcd111111111111",
+  to_address: "abcd111111111112",
+  from_token_id: "tok_BTC_01chckv8eh2nq1zwkyfkh2pe40",
+  to_token_id: "tok_ETH_01chckv8h6v355xgh629w4r27c",
+  from_amount: 1,
+  exchange_account_id: "acc_01chckv67se4eddn11nyz7y3ma"
+})
+```
+
+Returns either:
+- An `OmiseGO::Transaction` instance
+- An `OmiseGO::Error` instance
 
 ### Getting settings
 
