@@ -21,6 +21,22 @@ module OmiseGO
             provider_user_id: ENV['PROVIDER_USER_ID'],
             client: client
           )
+
+          expect(list).to be_kind_of OmiseGO::List
+          expect(list.first).to be_kind_of OmiseGO::Wallet
+          expect(list.first.balances.first).to be_kind_of OmiseGO::Balance
+          expect(list.first.balances.first.token).to be_kind_of OmiseGO::Token
+        end
+      end
+
+      it 'retrieves the list of wallets' do
+        VCR.use_cassette('wallet/all/account') do
+          expect(ENV['PROVIDER_USER_ID']).not_to eq nil
+          list = OmiseGO::Wallet.all_for_account(
+            account_id: ENV['ACCOUNT_ID'],
+            client: client
+          )
+
           expect(list).to be_kind_of OmiseGO::List
           expect(list.first).to be_kind_of OmiseGO::Wallet
           expect(list.first.balances.first).to be_kind_of OmiseGO::Balance
@@ -34,7 +50,7 @@ module OmiseGO
         it "credits the user's wallet" do
           VCR.use_cassette('wallet/credit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            wallets = OmiseGO::Wallet.credit(
+            transaction = OmiseGO::Wallet.credit(
               account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
@@ -43,9 +59,8 @@ module OmiseGO
               idempotency_token: 'mederirjriejr'
             )
 
-            expect(wallets).to be_kind_of OmiseGO::List
-            address = wallets.first
-            expect(address).to be_kind_of OmiseGO::Wallet
+            expect(transaction).to be_kind_of OmiseGO::Transaction
+            expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
           end
         end
       end
@@ -54,7 +69,7 @@ module OmiseGO
         it "credits the user's wallet" do
           VCR.use_cassette('wallet/credit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            wallets = OmiseGO::Wallet.credit(
+            transaction = OmiseGO::Wallet.credit(
               account_id: ENV['ACCOUNT_ID'],
               account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
@@ -64,7 +79,8 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(wallets).to be_kind_of OmiseGO::List
+            expect(transaction).to be_kind_of OmiseGO::Transaction
+            expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
           end
         end
       end
@@ -75,7 +91,7 @@ module OmiseGO
         it "debits the user's wallet" do
           VCR.use_cassette('wallet/debit/valid') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            wallets = OmiseGO::Wallet.debit(
+            transaction = OmiseGO::Wallet.debit(
               account_id: ENV['ACCOUNT_ID'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
               token_id: ENV['TOKEN_ID'],
@@ -84,7 +100,8 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(wallets).to be_kind_of OmiseGO::List
+            expect(transaction).to be_kind_of OmiseGO::Transaction
+            expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
           end
         end
       end
@@ -93,7 +110,7 @@ module OmiseGO
         it "debit/s the user's wallet" do
           VCR.use_cassette('wallet/debit/valid_optional') do
             expect(ENV['PROVIDER_USER_ID']).not_to eq nil
-            wallets = OmiseGO::Wallet.debit(
+            transaction = OmiseGO::Wallet.debit(
               account_id: ENV['ACCOUNT_ID'],
               account_address: ENV['ACCOUNT_ADDRESS'],
               provider_user_id: ENV['PROVIDER_USER_ID'],
@@ -103,7 +120,8 @@ module OmiseGO
               idempotency_token: SecureRandom.uuid
             )
 
-            expect(wallets).to be_kind_of OmiseGO::List
+            expect(transaction).to be_kind_of OmiseGO::Transaction
+            expect(transaction.from).to be_kind_of OmiseGO::TransactionSource
           end
         end
       end

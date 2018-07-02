@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/user.create
+    uri: http://localhost:4000/api/admin/user.create
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"userOMGShopAPITest04","username":"user01","metadata":{"first_name":"John","last_name":"Denizet"},"encrypted_metadata":{}}'
@@ -25,15 +25,15 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:35 GMT
+      - Mon, 02 Jul 2018 06:25:52 GMT
       Content-Length:
-      - '216'
+      - '236'
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0kcn4gbgl8t9c0020l1
+      - 2kunif9anttmceif0o000881
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,8 +44,9 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":false,"data":{"object":"error","messages":{"provider_user_id":[null]},"description":"Invalid
-        parameter provided `provider_user_id` has already been taken.","code":"client:invalid_parameter"}}'
+      string: '{"version":"1","success":false,"data":{"object":"error","messages":{"provider_user_id":["has
+        already been taken"]},"description":"Invalid parameter provided `provider_user_id`
+        has already been taken.","code":"client:invalid_parameter"}}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:35 GMT
+  recorded_at: Mon, 02 Jul 2018 06:25:52 GMT
 recorded_with: VCR 3.0.3

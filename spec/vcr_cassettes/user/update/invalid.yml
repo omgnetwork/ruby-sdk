@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/user.update
+    uri: http://localhost:4000/api/admin/user.update
     body:
       encoding: UTF-8
       string: '{"provider_user_id":"provider_user_id01","username":"","metadata":{"first_name":"Jane","last_name":"Doe"},"encrypted_metadata":{}}'
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:36 GMT
+      - Mon, 02 Jul 2018 06:25:53 GMT
       Content-Length:
       - '198'
       Content-Type:
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0mp4v3jgob3qk0020q1
+      - 2kunifbkfan2tc7s800008c1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -47,5 +47,5 @@ http_interactions:
       string: '{"version":"1","success":false,"data":{"object":"error","messages":{"username":["required"]},"description":"Invalid
         parameter provided `username` can''t be blank.","code":"client:invalid_parameter"}}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:36 GMT
+  recorded_at: Mon, 02 Jul 2018 06:25:53 GMT
 recorded_with: VCR 3.0.3

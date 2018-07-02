@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/user.debit_wallet
+    uri: http://localhost:4000/api/admin/transaction.create
     body:
       encoding: UTF-8
-      string: '{"provider_user_id":"provider_user_id01","user_address":null,"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","amount":1000,"metadata":{},"encrypted_metadata":{},"account_id":"acc_01cfy9350215sgwxs11tqnqw9t","account_address":null,"idempotency_token":"580d03f6-2330-4ce5-a1e3-5042a601afc7"}'
+      string: '{"from_provider_user_id":"provider_user_id01","from_address":null,"to_account_id":"acc_01chckv67se4eddn11nyz7y3ma","to_address":null,"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","amount":1000,"metadata":{},"encrypted_metadata":{},"account_address":null,"idempotency_token":"131663b4-1edd-4c3f-8790-e4e8332bf135"}'
     headers:
       User-Agent:
       - Faraday v0.13.1
@@ -25,15 +25,15 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:38 GMT
+      - Mon, 02 Jul 2018 06:25:55 GMT
       Content-Length:
-      - '2284'
+      - '2234'
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0re71acgmgu7k0021e1
+      - 2kunifga9tn4tvqdmk0008j1
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,8 +44,9 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"object":"list","data":[{"user_id":"usr_01cfy9377swjpf3t9t5bxbbbqn","user":{"username":"jane@doe.com","updated_at":"2018-06-14T04:37:51.729190Z","socket_topic":"user:usr_01cfy9377swjpf3t9t5bxbbbqn","provider_user_id":"provider_user_id01","object":"user","metadata":{"last_name":"Doe","first_name":"Jane"},"id":"usr_01cfy9377swjpf3t9t5bxbbbqn","encrypted_metadata":{},"email":null,"created_at":"2018-06-14T04:33:11.417604Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"updated_at":"2018-06-14T04:33:11.418412Z","socket_topic":"wallet:671f368d-d53b-4a35-8b20-5a5a38346776","object":"wallet","name":"primary","metadata":{},"identifier":"primary","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.418401Z","balances":[{"token":{"updated_at":"2018-06-14T04:33:11.185043Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01CFY9370GMJ8WTRCC7FQJ14JQ","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.185028Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-06-14T04:33:11.287346Z","symbol":"KNC","subunit_to_unit":1000,"object":"token","name":"Kyber","metadata":{},"id":"tok_KNC_01CFY9373QG3QXV7PDR04XDJHK","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.287332Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"balance","amount":13000},{"token":{"updated_at":"2018-06-14T04:33:11.354960Z","symbol":"OEM","subunit_to_unit":100,"object":"token","name":"One
-        EM","metadata":{},"id":"tok_OEM_01CFY9375TE36ECAZC6Q636Y6S","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.354942Z"},"object":"balance","amount":0},{"token":{"updated_at":"2018-06-14T04:33:11.384876Z","symbol":"ETH","subunit_to_unit":1000000000000000000,"object":"token","name":"Ether","metadata":{},"id":"tok_ETH_01CFY9376R0674T5TM25E2P6H0","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.384859Z"},"object":"balance","amount":0}],"address":"671f368d-d53b-4a35-8b20-5a5a38346776","account_id":null,"account":null}]}}'
+      string: '{"version":"1","success":true,"data":{"updated_at":"2018-07-02T06:25:56.027590Z","to":{"user_id":null,"user":null,"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1000,"address":"omri489161761367","account_id":"acc_01chckv67se4eddn11nyz7y3ma","account":{"updated_at":"2018-07-02T04:26:06.503595Z","socket_topic":"account:acc_01chckv67se4eddn11nyz7y3ma","parent_id":null,"object":"account","name":"master_account","metadata":{},"master":true,"id":"acc_01chckv67se4eddn11nyz7y3ma","encrypted_metadata":{},"description":"Master
+        Account","created_at":"2018-07-02T04:26:06.465519Z","category_ids":[],"categories":{"object":"list","data":[]},"avatar":{"thumb":null,"small":null,"original":null,"large":null}}},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"131663b4-1edd-4c3f-8790-e4e8332bf135","id":"txn_01chctpk9d3yd9v0ea6np5wh01","from":{"user_id":"usr_01chckv8jcsg09nzqh28ev0npd","user":null,"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1000,"address":"xkdz641731743701","account_id":null,"account":{"updated_at":"2018-07-02T04:26:06.503595Z","socket_topic":"account:acc_01chckv67se4eddn11nyz7y3ma","parent_id":null,"object":"account","name":"master_account","metadata":{},"master":true,"id":"acc_01chckv67se4eddn11nyz7y3ma","encrypted_metadata":{},"description":"Master
+        Account","created_at":"2018-07-02T04:26:06.465519Z","category_ids":[],"categories":{"object":"list","data":[]},"avatar":{"thumb":null,"small":null,"original":null,"large":null}}},"exchange":{"rate":1,"object":"exchange","exchange_pair_id":null,"exchange_pair":null,"calculated_at":null},"encrypted_metadata":{},"created_at":"2018-07-02T06:25:56.013742Z"}}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:39 GMT
+  recorded_at: Mon, 02 Jul 2018 06:25:56 GMT
 recorded_with: VCR 3.0.3

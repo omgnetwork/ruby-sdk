@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://example.com/api/admin/transaction.all
+    uri: http://localhost:4000/api/admin/transaction.all
     body:
       encoding: UTF-8
       string: '{"page":2,"per_page":2,"sort_by":"created_at","sort_dir":"desc"}'
@@ -25,15 +25,15 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 15 Jun 2018 04:47:31 GMT
+      - Mon, 02 Jul 2018 06:25:48 GMT
       Content-Length:
-      - '2362'
+      - '4326'
       Content-Type:
       - application/vnd.omisego.v1+json; charset=utf-8
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ks3o0e5ufln1aig440020a1
+      - 2kunif3319vks93ogk000801
       Vary:
       - Origin
       Access-Control-Allow-Origin:
@@ -44,7 +44,7 @@ http_interactions:
       - 'true'
     body:
       encoding: UTF-8
-      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-06-14T09:40:08.687583Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":190000,"address":"ffe9b068-897e-476f-87a0-0d62bf5fa645"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"c7fcd868-4b26-47c8-8f78-6e0ccf934170","id":"tfr_01cfytn8qva8cv17m0xn89vgve","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":190000,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T09:40:08.571146Z"},{"updated_at":"2018-06-14T09:38:20.446746Z","to":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10,"address":"b8f634be-4de9-4740-9f12-5ea3c98b71a5"},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"a55821a7-97bb-4bfc-8ca8-f1cc72c8291c","id":"tfr_01cfythz4bpbqmpt4fzcq8f3eg","from":{"token_id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","token":{"updated_at":"2018-06-14T04:33:11.321800Z","symbol":"BTC","subunit_to_unit":10000,"object":"token","name":"Bitcoin","metadata":{},"id":"tok_BTC_01CFY9374SY1MDF2Z6RNH61F8X","encrypted_metadata":{},"created_at":"2018-06-14T04:33:11.321785Z"},"object":"transaction_source","amount":10,"address":"ffe9b068-897e-476f-87a0-0d62bf5fa645"},"exchange":{"rate":1,"object":"exchange"},"encrypted_metadata":{},"created_at":"2018-06-14T09:38:20.427278Z"}]}}'
-    http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:47:32 GMT
+      string: '{"version":"1","success":true,"data":{"pagination":{"per_page":2,"is_last_page":false,"is_first_page":false,"current_page":2},"object":"list","data":[{"updated_at":"2018-07-02T06:24:41.109538Z","to":{"user_id":"usr_01chckv8jgen5yyw3z1are0n31","user":{"username":"user02","updated_at":"2018-07-02T04:26:08.848770Z","socket_topic":"user:usr_01chckv8jgen5yyw3z1are0n31","provider_user_id":"provider_user_id02","object":"user","metadata":{},"id":"usr_01chckv8jgen5yyw3z1are0n31","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:26:08.848752Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1,"address":"zkjr365717752847","account_id":null,"account":null},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"5E366B12-6278-42D0-A101-B6596B4162D3","id":"txn_01chctma3cagrcvg3zddpzg1bc","from":{"user_id":"usr_01chcmk4m113ad83zfem37pqv8","user":{"username":"user02","updated_at":"2018-07-02T04:26:08.848770Z","socket_topic":"user:usr_01chckv8jgen5yyw3z1are0n31","provider_user_id":"provider_user_id02","object":"user","metadata":{},"id":"usr_01chckv8jgen5yyw3z1are0n31","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:26:08.848752Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":1,"address":"rjhj834198995406","account_id":null,"account":null},"exchange":{"rate":1,"object":"exchange","exchange_pair_id":null,"exchange_pair":null,"calculated_at":null},"encrypted_metadata":{},"created_at":"2018-07-02T06:24:41.068712Z"},{"updated_at":"2018-07-02T06:24:20.812154Z","to":{"user_id":"usr_01chcmk4m113ad83zfem37pqv8","user":{"username":"user01","updated_at":"2018-07-02T04:39:11.233547Z","socket_topic":"user:usr_01chcmk4m113ad83zfem37pqv8","provider_user_id":"userOMGShopAPITest04","object":"user","metadata":{"last_name":"Denizet","first_name":"John"},"id":"usr_01chcmk4m113ad83zfem37pqv8","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:39:11.233539Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":5000000000,"address":"rjhj834198995406","account_id":null,"account":null},"status":"confirmed","object":"transaction","metadata":{},"idempotency_token":"2d586a8c-8178-4f74-a544-9168fb060a27","id":"txn_01chctkp9f5ycan24kseaq4kdy","from":{"user_id":null,"user":{"username":"user01","updated_at":"2018-07-02T04:39:11.233547Z","socket_topic":"user:usr_01chcmk4m113ad83zfem37pqv8","provider_user_id":"userOMGShopAPITest04","object":"user","metadata":{"last_name":"Denizet","first_name":"John"},"id":"usr_01chcmk4m113ad83zfem37pqv8","encrypted_metadata":{},"email":null,"created_at":"2018-07-02T04:39:11.233539Z","avatar":{"thumb":null,"small":null,"original":null,"large":null}},"token_id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","token":{"updated_at":"2018-07-02T04:26:08.545039Z","symbol":"OMG","subunit_to_unit":10000,"object":"token","name":"OmiseGO","metadata":{},"id":"tok_OMG_01chckv89051fsnf1bydkgc6ah","encrypted_metadata":{},"created_at":"2018-07-02T04:26:08.545026Z"},"object":"transaction_source","amount":5000000000,"address":"omri489161761367","account_id":"acc_01chckv67se4eddn11nyz7y3ma","account":null},"exchange":{"rate":1,"object":"exchange","exchange_pair_id":null,"exchange_pair":null,"calculated_at":null},"encrypted_metadata":{},"created_at":"2018-07-02T06:24:20.783968Z"}]}}'
+    http_version:
+  recorded_at: Mon, 02 Jul 2018 06:25:48 GMT
 recorded_with: VCR 3.0.3
